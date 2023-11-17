@@ -13,19 +13,19 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
-    public function create()
-    {
-        return view('products.create');
-    }
+        public function create()
+        {
+            return view('products.create');
+        }
 
-    public function store(Request $request)
-    {
-        // Validasi input, simpan data ke basis data, dll.
-        // Contoh sederhana:
-        Product::create($request->all());
+        public function store(Request $request)
+        {
+            // Validasi input, simpan data ke basis data, dll.
+            // Contoh sederhana:
+            Product::create($request->all());
 
-        return redirect()->route('products.index');
-    }
+            return redirect()->route('products.index');
+        }
 
     public function show($id)
     {

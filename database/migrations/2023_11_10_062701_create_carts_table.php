@@ -9,7 +9,7 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id('CartID');
-            $table->foreignId('CustomerID')->constrained('customers', 'CustomerID');
+            $table->foreignId('CustomerID')->constrained('customer', 'CustomerID');
             $table->string('Status');
             $table->timestamp('CreatedDate');
             $table->timestamp('UpdatedDate')->nullable();

@@ -46,6 +46,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::create([
+            'ProductID' => '2',
+            'Name' => 'sampo',
+            'ProductCode' => '002',
+            'Description' => 'sampo Impor Terpercaya',
+            'Price' => 5000,
+            'Stock' => 2,
+            'ImageURL' => 'unsplash.com'
+
+        ]);
+        Product::create([
+            'ProductID' => '3',
+            'Name' => 'Pastagigi',
+            'ProductCode' => '003',
+            'Description' => 'Pastagigi Impor Terpercaya',
+            'Price' => 1500,
+            'Stock' => 3,
+            'ImageURL' => 'unsplash.com'
+
+        ]);
+        Product::create([
             'ProductID' => '1',
             'Name' => 'Sabun',
             'ProductCode' => '001',

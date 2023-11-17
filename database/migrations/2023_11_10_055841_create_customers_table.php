@@ -7,19 +7,19 @@ class CreateCustomersTable extends Migration
 {
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('customer', function (Blueprint $table) {
             $table->id('CustomerID');
-            $table->string('FirstName');
-            $table->string('LastName');
-            $table->string('Email')->unique();
-            $table->text('Address');
-            $table->string('Phone');
+            $table->string('nama');
+            $table->char('nomor_hp');
+            $table->text('alamat');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('customer');
     }
 }

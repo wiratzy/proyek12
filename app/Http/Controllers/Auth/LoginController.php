@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Customer;
 
 class LoginController extends Controller
 {
@@ -27,10 +28,7 @@ class LoginController extends Controller
                 return view('admin');
             } elseif ($user->isKaryawan()) {
                 $user->role = 'karyawan';
-                $user->save(); // Simpan perubahan role ke database
-                // return redirect()->route('dashboard.karyawan');
-                $products = Product::all();
-                return view('dashboard.index', compact('products'));
+                return redirect('dashboard/dashboardKaryawan');
             } else {
                 $user->role = 'customer';
                 $user->save(); // Simpan perubahan role ke database
