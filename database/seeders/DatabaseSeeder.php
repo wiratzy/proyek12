@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\Karyawan;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -74,6 +75,15 @@ class DatabaseSeeder extends Seeder
             'Stock' => 2,
             'ImageURL' => 'unsplash.com'
 
+        ]);
+
+        Customer::create([
+            'CustomerID' => '1',
+            'nama' => 'riyan',
+            'nomor_hp' => '0893531342',
+            'alamat' => 'imkot',
+            'email' => 'rian@gmail.com',
+            'password' => bcrypt('12345')
         ]);
         }
 }

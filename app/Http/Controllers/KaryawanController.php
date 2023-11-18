@@ -20,9 +20,17 @@ class KaryawanController extends Controller
     {
         
     }
-    public function edit()
+    public function edit($id)
     {
+        $customer = Customer::findOrFail($id);
+        return view('customer.edit', compact('customer'));
+    }
+    public function update(Request $request, $id )
+    {
+    $customer = Customer::findOrFail($id);
+    $customer->update($request->all());
 
+    return redirect('dashboard/dashboardKaryawan');
     }
 
     public function destroy()

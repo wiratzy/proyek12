@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -23,14 +24,13 @@ use App\Http\Controllers\ProfileControllerController;
 |
 */
 
-Route::get("/", [ProductController::class, 'index']);
+Route::get("/", [HomeController::class, 'index'])->name('home');
 Route::get('/tables', function () {
     return view('pages/tables');
 });
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login.store');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('logout', function () {
     auth()->logout();
@@ -45,8 +45,11 @@ Route::get('customer/index', function(){
     $customers = Customer::all();
     return view('customer.index',compact('customers'));
 });
-Route::get('customerEdit', [KaryawanController::class, 'edit'] )->name('customer.edit');
-Route::get('customerDestroy', [KaryawanController::class, 'destroy'] )->name('customer.destroy');
+// Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'] );
+// Route::get('customer.edit', [KaryawanController::class,'edit']);
+// Route::get('customer/{$id}/edit', [KaryawanController::class, 'edit']);
+// Route::post('customer/{$id}/edit', [KaryawanController::class, 'update']);
+Route::resource('customer', KaryawanController::class);
 Route::resource('products', ProductController::class);
 // Route::resource('register', CustomerController::class);
 Route::get('register', [CustomerController::class, 'index']);

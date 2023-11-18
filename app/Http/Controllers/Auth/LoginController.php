@@ -31,8 +31,8 @@ class LoginController extends Controller
                 return redirect('dashboard/dashboardKaryawan');
             } else {
                 $user->role = 'customer';
-                $user->save(); // Simpan perubahan role ke database
-                return view('user');
+                // $user->save(); // Simpan perubahan role ke database
+                return redirect('products');
             }
         } else {
             // Login gagal
