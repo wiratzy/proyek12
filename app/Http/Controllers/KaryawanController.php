@@ -33,8 +33,10 @@ class KaryawanController extends Controller
     return redirect('dashboard/dashboardKaryawan');
     }
 
-    public function destroy()
+    public function destroy( $id)
     {
-
+        $customer = Customer::findOrFail($id);
+        $customer= $customer->delete();
+    return redirect('dashboard/dashboardKaryawan');
     }
 }

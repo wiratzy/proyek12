@@ -8,10 +8,7 @@ use App\Models\Customer;
 class CustomerController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('RedirectIfNotKaryawan');
-    }
+ 
     public function index()
     {
         return view('register');
@@ -27,6 +24,6 @@ class CustomerController extends Controller
         // Contoh sederhana:
         Customer::create($request->all());
 
-        return redirect('customer/index');
+        return redirect('products');
     }
 }

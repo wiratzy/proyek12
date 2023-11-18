@@ -2,10 +2,10 @@
     @csrf
     @method('PATCH')
     <label for="nama">Nama:</label>
-    <input type="text" id="nama" name="nama" required value="{{ $customer->CustomerID }}">
+    <input type="text" id="nama" name="nama" required value="{{ $customer->nama }}">
     <br>
     <label for="nomor_hp">Nomor HP:</label>
-    <input type="tel" id="nomor_hp" name="nomor_hp" required value="{{ $customer->nama }}">
+    <input type="tel" id="nomor_hp" name="nomor_hp" required value="{{ $customer->nomor_hp }}">
     <br>
     <label for="alamat">Alamat:</label>
     <input type="text" id="alamat" name="alamat" required value="{{ $customer->alamat }}">

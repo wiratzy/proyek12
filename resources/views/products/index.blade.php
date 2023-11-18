@@ -20,7 +20,7 @@
         <h1 class="text-center">Display Product</h1>
         <div class="row justify-content-center mb-3">
             <div class="col-md-6">
-                <form action="/" method="GET">
+                <form action="/products" method="GET">
                     <div class="input-group mb-3 ">
                         <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
                         <button class="btn btn-danger" type="submit">Search</button>

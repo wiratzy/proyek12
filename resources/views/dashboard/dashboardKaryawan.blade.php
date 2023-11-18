@@ -27,6 +27,9 @@
                     <a href="{{ route('products.edit', $product->ProductID) }} " class="btn btn-warning">Edit</a>
                 </td>
                 <td>
+                    <a href="{{ route('products.create') }}" class="btn btn-success">Tambah Produk</a>
+                </td>
+                <td>
                     <form action="{{ route('products.destroy', $product->ProductID) }}" method="POST">
                         @csrf
                         @method('delete')
@@ -58,6 +61,9 @@
             <td>{{ $customer->email }}</td>
             <td>
                 <a href="{{ route('customer.edit', $customer->CustomerID) }}" class="btn btn-warning">Edit</a>
+            </td>
+            <td>
+                <a href="{{ route('customer.create') }}" class="btn btn-success">Tambah Customer</a>
             </td>
             <td>
                 <form action="{{ route('customer.destroy', $customer->CustomerID) }}" method="POST">

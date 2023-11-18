@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
@@ -24,10 +25,8 @@ use App\Http\Controllers\ProfileControllerController;
 |
 */
 
-Route::get("/", [HomeController::class, 'index'])->name('home');
-Route::get('/tables', function () {
-    return view('pages/tables');
-});
+Route::get('/', [HomeController::class, 'index']);
+
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login.store');
@@ -37,8 +36,7 @@ Route::post('logout', function () {
     return redirect('login');
 })->name('logout');
 
-Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index']);
-Route::post('dashboard/dashboardKaryawan', [KaryawanController::class, 'storeKaryawan']);
+Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('RedirectIfNotKaryawan');
 // Route::get('login', [LoginController::class, 'index']);
 Route::post('dashboard/dashboardKaryawan', [LoginController::class, 'store']);
 Route::get('customer/index', function(){
@@ -52,6 +50,6 @@ Route::get('customer/index', function(){
 Route::resource('customer', KaryawanController::class);
 Route::resource('products', ProductController::class);
 // Route::resource('register', CustomerController::class);
-Route::get('register', [CustomerController::class, 'index']);
-Route::get('registerCustomer', [CustomerController::class, 'create']);
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::get('customer/create', [CustomerController::class, 'create'])->name('customer.create');
 Route::post('storeCustomer', [CustomerController::class, 'storeCustomer'])->name('register.storeCustomer');

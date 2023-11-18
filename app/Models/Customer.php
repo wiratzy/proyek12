@@ -11,4 +11,9 @@ class Customer extends Model
     protected $primaryKey = 'CustomerID';
     protected $guarded = ['CustomerID'];
     public $table = 'customer';
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 }

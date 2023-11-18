@@ -15,9 +15,9 @@ class RedirectIfNotKaryawan
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->role == 'karyawan')
+        if($request->user()->role !== 'karyawan')
         {
-            return redirect('/');
+            return abort(403, 'Akses Di Tolak');
         }
         return $next($request);
     }
