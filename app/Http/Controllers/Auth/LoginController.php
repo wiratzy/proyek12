@@ -25,14 +25,19 @@ class LoginController extends Controller
             if ($user->isAdmin()) {
                 $user->role = 'admin';
                 $user->save(); // Simpan perubahan role ke database
-                return view('dashboard/dashboardAdmin');
+                return view('admin');
             } elseif ($user->isKaryawan()) {
                 $user->role = 'karyawan';
-                return redirect('dashboard/dashboardKaryawan');
+                $user->save(); // Simpan perubahan role ke database
+                // return redirect()->route('dashboard.karyawan');
+                $title = "Dashboard Karyawan";
+                $slug = "dashboard";
+                $products = Product::all();
+                return view('karyawan.index', compact('products','title', 'slug'));
             } else {
                 $user->role = 'customer';
-                // $user->save(); // Simpan perubahan role ke database
-                return redirect('products');
+                $user->save(); // Simpan perubahan role ke database
+                return view('user');
             }
         } else {
             // Login gagal

@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
     public function index()
     {
-
-        $products = Product::all();
-        $customers = Customer::all();
-        return view('dashboard.dashboardKaryawan', compact('products', 'customers'));
+            $products = Product::all();
+            $title = "Dashboard Karyawan";
+            $slug = "dashboard";
+            return view('karyawan.index', compact('products', 'title', 'slug'));    
     }
 
 
@@ -21,23 +22,199 @@ class KaryawanController extends Controller
     {
         
     }
-    public function edit($id)
-    {
-        $customer = Customer::findOrFail($id);
-        return view('customer.edit', compact('customer'));
-    }
-    public function update(Request $request, $id )
-    {
-    $customer = Customer::findOrFail($id);
-    $customer->update($request->all());
 
-    return redirect('dashboard/dashboardKaryawan');
+
+    //MENAMPILKAN DATA DARI DATABASE TABEL USER
+    public function dataCust()
+    {
+    $title = "Data Customer";
+    $slug = "customer";
+    $no = 1;
+    $dataCust = User::where("role","customer")->get();
+    
+    
+    return view("karyawan.customer", compact("title","slug","dataCust","no"));
     }
 
-    public function destroy( $id)
+
+    public function createCust()
     {
-        $customer = Customer::findOrFail($id);
-        $customer= $customer->delete();
-    return redirect('dashboard/dashboardKaryawan');
+        $title = 'Tambah Data Customer';
+        $slug = 'customer';
+        $dataCust = User::all();
+        
+        return view('karyawan.createcust', compact('title','slug','dataCust'));
+    }
+
+    public function storeCust(Request $request)
+    {
+        $result = User::insert([
+            'role'=> 'customer',
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password' => bcrypt('12345'),
+            'created_at'=> now(),
+            'updated_at'=> now()
+        ]);
+        if($result){
+            return redirect('/dataCustomer');
+        }else{
+            return $this->create();
+        }
+    }
+
+
+    // EDIT DATA CUSTOMER
+    public function editCust($id)
+    {
+        $title = 'Perbarui Data Customer';
+        $slug = 'customer';
+        $dataCust = User::
+                    where('id','=', $id)
+                    ->first();
+        
+        return view('karyawan.update', compact('title','slug','dataCust'));
+    }
+
+    public function updateCust(Request $request,  $id)
+    {
+        $id = $request->id;
+        User::where('id','=', $id)
+                    ->update([
+                        'name' => $request->name,
+                        'email' => $request->email,
+                        
+        ]); return redirect('/dataCustomer');
+    }
+
+
+    public function destroyCust( $id)
+    {
+        User::where('id',$id)
+        ->delete();
+        
+        return redirect('/dataCustomer');
+    }
+
+    public function resetPassword($id)
+    {
+        User::where('id',$id)
+        ->update([
+            'password' => bcrypt('12345'),
+            ]);
+        
+        return redirect('/dataCustomer');
+    }
+
+//              PRODUK
+
+
+        public function dataProduk()
+        {
+        $title = "Data Produk";
+        $slug = "produk";
+        $no = 1;
+        $dataProduk = Product::all();
+
+
+        return view('karyawan.produk', compact("title","slug","dataProduk","no"));
+        }
+        public function createProduk()
+        {
+            return view('karyawan.createprod');
+        }
+
+        // public function storeProduk(Request $request)
+        // {
+            
+        //     $gambar_nama = $_FILES['ImageURL']['name'];
+        //     $gambar_temp = $_FILES['ImageURL']['tmp_name'];
+        //     $result = Product::insert([
+        //         'Name' => $request->Name,
+        //         'Description' => $request->Description,
+        //         'Price' => $request->Price,
+        //         'Stock' => $request->Stock,
+        //         'ProductCode' => $request->ProductCode,
+        //         'ImageURL' => $request->ImageURL,
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+        //     if($result){
+        //         move_uploaded_file($gambar_temp, " {{ assets('storage/images/') }}" . $gambar_nama);
+        //         return redirect('/dataProduk');
+        //     }else{
+        //         return $this->createProduk();
+        //     }
+
+
+        // }
+        // public function storeProduk(Request $request)
+        // {
+        //     $gambar_nama = $request->file('ImageURL')->getClientOriginalName();
+            
+        //     $result = Product::create([
+        //         'Name' => $request->Name,
+        //         'Description' => $request->Description,
+        //         'Price' => $request->Price,
+        //         'Stock' => $request->Stock,
+        //         'ProductCode' => $request->ProductCode,
+        //         'ImageURL' => $gambar_nama, // Save the file name, not the file itself
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+
+        //     if ($result) {
+        //         $request->file('ImageURL')->storeAs('images', $gambar_nama, 'public'); // Save the file in the public disk under the 'images' directory
+        //         return redirect('/dataProduk');
+        //     } else {
+        //         return $this->createProduk();
+        //     }
+        // }
+
+        public function storeProduk(Request $request)
+{
+    // Step 1: Validate the request
+    $request->validate([
+        'Name' => 'required|string',
+        'Description' => 'required|string',
+        'Price' => 'required|numeric',
+        'Stock' => 'required|integer',
+        'ProductCode' => 'required|string',
+        'ImageURL' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    // Step 2: Check if the file exists in the request
+    if ($request->hasFile('ImageURL')) {
+        // Step 3: Get the original file name
+        $gambar_nama = $request->file('ImageURL')->getClientOriginalName();
+
+        // Step 4: Create a new product
+        $result = Product::insert([
+            'Name' => $request->Name,
+            'Description' => $request->Description,
+            'Price' => $request->Price,
+            'Stock' => $request->Stock,
+            'ProductCode' => $request->ProductCode,
+            'ImageURL' => $gambar_nama,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Step 5: Check if the product creation was successful
+        if ($result) {
+            // Step 6: Store the image file
+            $request->file('ImageURL')->store('public/images');
+
+            // Step 7: Redirect on success
+            return redirect('/dataProduk');
+        } else {
+            // Handle failure, redirect to createProduk or show an error message
+            return $this->createProduk();
+        }
+    } else {
+        // Handle the case where the file doesn't exist in the request
+        return response()->json(['error' => 'Image file is required.'], 400);
     }
 }
+
+        }

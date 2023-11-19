@@ -31,19 +31,25 @@ class DatabaseSeeder extends Seeder
             'name' => 'wira',
             'email' => 'wiranto@gmail.com',
             'role' => 'admin',
-            'password' => bcrypt('12345')
+            'password' => bcrypt('12345'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
         User::create([
             'name' => 'riski',
             'email' => 'riski@gmail.com',
             'role' => 'karyawan',
-            'password' => bcrypt('12345')
+            'password' => bcrypt('12345'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
         User::create([
             'name' => 'niken',
             'email' => 'niken@gmail.com',
             'role' => 'customer',
-            'password' => bcrypt('12345')
+            'password' => bcrypt('12345'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         Product::create([

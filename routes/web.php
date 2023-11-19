@@ -59,3 +59,20 @@ Route::resource('products', ProductController::class);
 // Route::resource('register', CustomerController::class);
 
 Route::get('customer/create', [CustomerController::class, 'create'])->name('customer.create');
+
+
+                            // KARYAWAN DATA TABLE CUSTOMER
+                            Route::get('dashboard', [KaryawanController::class, 'index']);
+                            Route::get('/dataCustomer', [KaryawanController::class, 'dataCust']);
+                            Route::post('/dataCustomer/storeCust', [KaryawanController::class, 'storeCust']);
+                            Route::get('/dataCustomer/createCust', [KaryawanController::class, 'createCust']);
+                            Route::post('/dataCustomer/updateCust/{id}', [KaryawanController::class, 'updateCust']);
+                            Route::get('/dataCustomer/editCust/{id}', [KaryawanController::class, 'editCust']);
+                            Route::get('/dataCustomer/destroyCust/{id}', [KaryawanController::class, 'destroyCust']);
+                            Route::get('/dataCustomer/resetPassword/{id}', [KaryawanController::class, 'resetPassword']);
+                            
+                            Route::post('/uploadImage', 'ImageController@uploadImage')->name('uploadImage');
+                            
+                            Route::get('dataProduk', [KaryawanController::class, 'dataProduk']);
+                            Route::get('/dataProduk/createProduk', [KaryawanController::class, 'createProduk']);
+                            Route::post('/dataProduk/storeProduk', [KaryawanController::class, 'storeProduk'])->name('products.store');

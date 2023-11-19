@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $primaryKey = "ProductID";
-    protected $fillable = ['Name', 'ProductCode', 'Description', 'Price', 'Stock'];
+    protected $fillable = ['Name', 'ProductCode', 'Description', 'Price', 'Stock', 'ImageURL'];
     public $incrementing = false;
 
     
