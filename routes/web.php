@@ -28,8 +28,15 @@ use App\Http\Controllers\ProfileControllerController;
 Route::get('/', [HomeController::class, 'index']);
 
 
-Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('RedirectIfLogin');
+// Route::get('login', [KaryawanController::class, 'index'])->name('index')->middleware('RedirecIfNotKaryawan');
 Route::post('login', [LoginController::class, 'store'])->name('login.store');
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::post('storeCustomer', [RegisterController::class, 'storeCustomer'])->name('storeCustomer');
+
+
+
+
 
 Route::post('logout', function () {
     auth()->logout();
@@ -50,6 +57,5 @@ Route::get('customer/index', function(){
 Route::resource('customer', KaryawanController::class);
 Route::resource('products', ProductController::class);
 // Route::resource('register', CustomerController::class);
-Route::get('register', [RegisterController::class, 'index'])->name('register');
+
 Route::get('customer/create', [CustomerController::class, 'create'])->name('customer.create');
-Route::post('storeCustomer', [CustomerController::class, 'storeCustomer'])->name('register.storeCustomer');

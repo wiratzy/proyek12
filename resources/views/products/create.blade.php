@@ -1,4 +1,3 @@
-@extends('layouts.app')
     <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -20,7 +19,7 @@
         <input type="number" name="Stock" id="Stock" required><br>
 
         <label for="ImageURL">Image URL:</label>
-        <input type="text" name="ImageURL" id="ImageURL" required><br>
+        <input type="file" name="ImageURL" id="ImageURL" required><br>
 
 
         <button type="submit">Create Product</button>

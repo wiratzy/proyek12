@@ -10,7 +10,10 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Stock</th>
+            <th scope="col">Image</th>
             <th scope="col">Action</th>
+            <th scope="col">                    <a href="{{ route('products.create') }}" class="btn btn-success">Tambah Produk</a>
+            </th>
 
         </tr>
     </thead>
@@ -23,11 +26,9 @@
                 <td>{{ $product->Description }}</td>
                 <td>{{ $product->Price }}</td>
                 <td>{{ $product->Stock }}</td>
+                <td>{{ $product->ImageURL }}</td>
                 <td>
                     <a href="{{ route('products.edit', $product->ProductID) }} " class="btn btn-warning">Edit</a>
-                </td>
-                <td>
-                    <a href="{{ route('products.create') }}" class="btn btn-success">Tambah Produk</a>
                 </td>
                 <td>
                     <form action="{{ route('products.destroy', $product->ProductID) }}" method="POST">
@@ -49,6 +50,7 @@
             <th>alamat</th>
             <th>email</th>
             <th>Action</th>
+            <th> <a href="{{ route('customer.create') }}" class="btn btn-success">Tambah Customer</a></th>
         </tr>
     </thead>
     <tbody>
@@ -62,9 +64,7 @@
             <td>
                 <a href="{{ route('customer.edit', $customer->CustomerID) }}" class="btn btn-warning">Edit</a>
             </td>
-            <td>
-                <a href="{{ route('customer.create') }}" class="btn btn-success">Tambah Customer</a>
-            </td>
+           
             <td>
                 <form action="{{ route('customer.destroy', $customer->CustomerID) }}" method="POST">
                     @csrf

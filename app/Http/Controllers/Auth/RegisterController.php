@@ -67,13 +67,34 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create( $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        
+        User::all();
+
+        return redirect()->back();
+    }
+
+    public function storeCustomer(Request $request)
+    {
+        // Validasi input, simpan data ke basis data, dll.
+        // Contoh sederhana:
+
+        
+        $result = User::insert([
+            'name' => $request->name,
+            'role' => 'customer',
+            'email' => $request->email,
+            'password' => Hash::make($request['password']),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
+        if ($result){
+            return redirect ('/products');
+        } else { 
+            return $this->data();
+        }
+        
     }
 
 }

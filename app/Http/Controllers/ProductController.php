@@ -24,7 +24,7 @@ class ProductController extends Controller
             // Contoh sederhana:
             Product::create($request->all());
 
-            return redirect()->route('products.index');
+            return redirect('dashboard/dashboardKaryawan');
         }
 
     public function show($id)
@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product = $product->delete();
 
-        return redirect()->route('products.index', $id);
+        return redirect('dashboard/dashboardKaryawan');
     }
 }
 

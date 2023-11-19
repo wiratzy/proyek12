@@ -1,13 +1,7 @@
-<form action="{{ route('register.storeCustomer') }}" method="POST">
+<form action="{{ route('storeCustomer') }}" method="POST">
     @csrf
-    <label for="nama">Nama :</label>
-    <input type="text" name="nama" id="nama">
-    <br>
-    <label for="nomor_hp">Nomor Hp :</label>
-    <input type="tel" name="nomor_hp" id="nomor_hp">
-    <br>
-    <label for="alamat">Alamat :</label>
-    <input type="text" name="alamat" id="alamat">
+    <label for="name">Nama :</label>
+    <input type="text" name="name" id="name">
     <br>
     <label for="email">Email :</label>
     <input type="text" name="email" id="email">

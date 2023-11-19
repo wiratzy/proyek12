@@ -10,6 +10,7 @@ class KaryawanController extends Controller
 {
     public function index()
     {
+
         $products = Product::all();
         $customers = Customer::all();
         return view('dashboard.dashboardKaryawan', compact('products', 'customers'));
