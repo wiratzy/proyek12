@@ -10,7 +10,7 @@
                                         <th>EMAIL</th>
                                         
                                         
-                                        <th><a href="/dataCustomer/createCust" class="btn btn-success">Tambah Data</a></th>
+                                        <th><a href="/dataCustomer/createCust" class="btn btn-success"><i class="fa fa-user-plus "></i>  Customer</a></th>
 </tr>
 </thead>
                         <tbody>
@@ -23,11 +23,11 @@
                                         <!-- <td class="text-center"><img width="50" height="50" src="{{ asset($item->image_path) }}" class="img-responsive"></td> -->
                                         <td>
                                             <a href="/dataCustomer/editCust/{{ $item->id }}"
-                                            class="btn btn-sm btn-warning">Edit</a>
+                                            class="btn btn-sm btn-secondary"><i class="fa fa-wrench"></i>  Edit</a>
                                             <a href="/dataCustomer/destroyCust/{{ $item->id }}"
-                                            class="btn btn-sm btn-warning">Hapus</a>
+                                            class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>   Hapus</a>
                                             <a href="/dataCustomer/resetPassword/{{ $item->id }}"
-                                            class="btn btn-sm btn-warning">Reset Password</a>
+                                            class="btn btn-sm btn-warning"><i class="fa fa-recycle"></i>   Reset Password</a>
                                         </td>
 </tr>
 <?php $no++;?>

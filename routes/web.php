@@ -76,3 +76,6 @@ Route::get('customer/create', [CustomerController::class, 'create'])->name('cust
                             Route::get('dataProduk', [KaryawanController::class, 'dataProduk']);
                             Route::get('/dataProduk/createProduk', [KaryawanController::class, 'createProduk']);
                             Route::post('/dataProduk/storeProduk', [KaryawanController::class, 'storeProduk'])->name('products.store');
+                            Route::post('/dataProduk/updateProduk/{id}', [KaryawanController::class, 'updateProduk']);
+                            Route::get('/dataProduk/editProduk/{id}', [KaryawanController::class, 'editProduk']);
+                            Route::get('/dataProduk/destroyProduk/{id}', [KaryawanController::class, 'destroyProduk']);

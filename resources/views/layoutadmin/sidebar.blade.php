@@ -49,7 +49,7 @@ Profil
 <li class="nav-item">
 <a href="/dataCustomer" class="nav-link
 {{ ($slug == 'customer') ? 'active' : '' }}">
-<i class="nav-icon fas fa-table"></i>
+<i class="nav-icon fa fa-users" aria-hidden="true"></i>
 <p>
 Data Customer
 </p>
@@ -58,9 +58,19 @@ Data Customer
 <li class="nav-item">
 <a href="/dataProduk" class="nav-link
 {{ ($slug == 'produk') ? 'active' : '' }}">
-<i class="nav-icon fas fa-table"></i>
+<i class="nav-icon fa fa-tags" aria-hidden="true"></i>
 <p>
 Data Produk
+</p>
+</a>
+</li>
+</li>
+<li class="nav-item">
+<a href="/dataPenjualan" class="nav-link
+{{ ($slug == 'penjualan') ? 'active' : '' }}">
+<i class="nav-icon fa fa-shopping-cart" aria-hidden="true"></i>
+<p>
+Data Penjualan
 </p>
 </a>
 </li>
@@ -70,7 +80,7 @@ Data Produk
 <a href="{{ route('logout') }}" class="nav-link"
 onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
-                     <i class="nav-icon fas fa-table"></i>
+                     <i class="nav-icon fa fa-arrow-circle-left" aria-hidden="true"></i>
                      {{ __('Logout') }}
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

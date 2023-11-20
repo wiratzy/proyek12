@@ -13,7 +13,7 @@
                                         <th>STOK</th>
                                         <th>GAMBAR</th>
                                         
-                                        <th><a href="/dataProduk/createProduk" class="btn btn-success">Tambah Data</a></th>
+                                        <th><a href="/dataProduk/createProduk" class="btn btn-success"> <i class="fa fa-user-plus fa-lg"></i>   Produk</a></th>
 </tr>
 </thead>
                         <tbody>
@@ -28,10 +28,10 @@
                                         <td>{{ $item->Stock }}</td>
                                         <td class="text-center"><img width="50" height="50" src="{{ asset('/storage/images/' . $item->ImageURL) }}"  class="img-responsive"></td>
                                         <td>
-                                            <a href="/dataProduk/edit/{{ $item->id }}"
-                                            class="btn btn-sm btn-warning">Edit</a>
-                                            <a href="/dataCustomer/destroy/{{ $item->id }}"
-                                            class="btn btn-sm btn-warning">Hapus</a>
+                                            <a href="/dataProduk/editProduk/{{ $item->ProductID }}"
+                                            class="btn btn-sm btn-secondary"><i class="fa fa-wrench"></i>   Edit</a>
+                                            <a href="/dataCustomer/destroyProduk/{{ $item->ProductID }}"
+                                            class="btn btn-sm btn-danger">    Hapus</a>
                                         </td>
 </tr>
 <?php $no++;?>

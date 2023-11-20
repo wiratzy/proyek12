@@ -217,4 +217,38 @@ class KaryawanController extends Controller
     }
 }
 
+public function editProduk($id)
+    {
+        $title = 'Perbarui Data Produk';
+        $slug = 'produk';
+        $dataProduk = Product::
+                    where('ProductID','=', $id)
+                    ->first();
+        
+        return view('karyawan.updateproduk', compact('title','slug','dataProduk'));
+    }
+
+    public function updateProduk(Request $request,  $id)
+    {
+        $id = $request->id;
+        Product::where('ProductID','=', $id)
+                    ->update([
+                        'Name' => $request->Name,
+                        'Description' => $request->Description,
+                        'Price' => $request->Price,
+                        'Stock' => $request->Stock,
+                        'ProductCode' => $request->ProductCode,
+                        
+        ]); return redirect('/dataProduk');
+    }
+
+
+    public function destroyProduk( $id)
+    {
+        Product::where('ProductID',$id)
+        ->delete();
+        
+        return redirect('/dataProduk');
+    }
+
         }

@@ -1,9 +1,9 @@
 @include('layoutadmin.header');
 <div class="wrapper">
 <!-- Preloader -->
-<div class="preloader flex-column justify-content-center align-itemscenter">
+<div class="preloader flex-column justify-content-center align-items-center">
 <img class="animation__shake" src="{{ asset('adminlte')
-}}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+}}/dist/img/polindra.png" alt="AdminLTELogo" height="100" width="100">
 </div>
 @include('layoutadmin.sidebar');
 <!-- Content Wrapper. Contains page content -->
