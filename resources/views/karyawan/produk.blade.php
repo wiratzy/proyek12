@@ -12,9 +12,9 @@
                 <th>STOK</th>
                 <th>GAMBAR</th>
 
-                <th><a href="/dataProduk/createProduk" class="btn btn-success" data-bs-toggle="modal"
+                <th><button type="button" class="btn btn-success" data-bs-toggle="modal"
                         data-bs-target="#exampleModal"> <i class="fa fa-user-plus fa-lg"></i>
-                        Produk</a></th>
+                        Produk</button></th>
             </tr>
         </thead>
         <tbody>
@@ -27,12 +27,11 @@
                     <td>{{ $item->Description }}</td>
                     <td>{{ $item->Price }}</td>
                     <td>{{ $item->Stock }}</td>
-                    <td class="text-center"><img width="50" height="50"
-                            src="{{ asset('/storage/images/' . $item->ImageURL) }}" class="img-responsive"></td>
+                    <td class="text-center"><img width="50" height="50" src="{{ asset('/storage/images/' . $item->ImageURL) }}" class="img-responsive"></td>
                     <td>
                         <a href="/dataProduk/editProduk/{{ $item->ProductID }}" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-wrench"></i> Edit</a>
-                        <a href="/dataCustomer/destroyProduk/{{ $item->ProductID }}" class="btn btn-sm btn-danger">
+                        <a href="/dataProduk/destroyProduk/{{ $item->ProductID }}" class="btn btn-sm btn-danger">
                             Hapus</a>
                     </td>
                 </tr>
@@ -50,7 +49,8 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="{{ route('karyawan/createprod') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama:</label>
                         <input type="text" name="Name" class="form-control" required>
