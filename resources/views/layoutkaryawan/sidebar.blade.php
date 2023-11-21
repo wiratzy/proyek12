@@ -19,7 +19,7 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
 class="img-circle elevation-2" alt="User Image">
 </div>
 <div class="info">
-<a href="/profil" class="d-block">{{ auth()->user()->name }}</a>
+<a href="/profil" class="d-block text-decoration-none">{{ auth()->user()->name }}</a>
 </div>
 </div>
 <!-- Sidebar Menu -->
