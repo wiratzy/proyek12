@@ -1,4 +1,4 @@
-@extends('layoutkaryawan.main')
+@extends('layoutadmin.main')
 @section('css')
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/icheckbootstrap/icheck-bootstrap.min.css">
@@ -512,7 +512,8 @@
                 </div>
                 <div class="card-body">
                     <canvas class="chart" id="line-chart"
-                        style="min-height: 250px;height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        style="min-height: 250px;
+height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer bg-transparent">

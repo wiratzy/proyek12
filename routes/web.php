@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ProductController;
@@ -25,7 +26,7 @@ use App\Http\Controllers\ProfileControllerController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index']);
 
 
 Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('RedirectIfLogin');
@@ -60,6 +61,15 @@ Route::resource('products', ProductController::class);
 
 Route::get('customer/create', [CustomerController::class, 'create'])->name('customer.create');
 
+
+//Dashboard Admin
+Route::get('/dataKaryawan', [AdminController::class, 'index']);
+Route::post('/dataKaryawan/storeKaryawan', [AdminController::class, 'storeKaryawan']);
+Route::get('/dataKaryawan/createKaryawan', [AdminController::class, 'createKaryawan']);
+Route::get('dataKaryawan/editKaryawan/{id}', [AdminController::class, 'editKaryawan']);
+Route::post('/dataKaryawan/updateKaryawan/{id}', [AdminController::class, 'updateKaryawan']);
+Route::post('/dataKaryawan/destroyKaryawan/{id}', [AdminController::class, 'destroyKaryawan']);
+Route::get('/dataKaryawan/resetPassword/{id}', [AdminController::class, 'ResetPassword']);
 
                             // KARYAWAN DATA TABLE CUSTOMER
                             Route::get('dashboard', [KaryawanController::class, 'index']);
