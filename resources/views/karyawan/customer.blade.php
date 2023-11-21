@@ -1,4 +1,4 @@
-@extends ('layoutadmin.main')
+@extends ('layoutkaryawan.main')
 @section ('content')
         
                 <table class="table table-bordered table-striped" id="example1">

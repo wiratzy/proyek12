@@ -1,4 +1,4 @@
-@extends('layoutadmin.main')
+@extends('layoutkaryawan.main')
 @section('content')
     <h2>Update Data Customer</h2>
     <form action="/dataCustomer/updateCust/{{ $dataCust->id }}" method="POST" enctype="multipart/form-data">
