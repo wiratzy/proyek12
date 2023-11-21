@@ -180,13 +180,14 @@ class KaryawanController extends Controller
         'Price' => 'required|numeric',
         'Stock' => 'required|integer',
         'ProductCode' => 'required|string',
-        'ImageURL' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'ImageURL' => 'required|image|mimes:jpeg,png,jpg,gif',
     ]);
 
     // Step 2: Check if the file exists in the request
     if ($request->hasFile('ImageURL')) {
         // Step 3: Get the original file name
         $gambar_nama = $request->file('ImageURL')->getClientOriginalName();
+        // $gambar_type = $request->file('ImageURL')->getClientOriginalExtension();
 
         // Step 4: Create a new product
         $result = Product::insert([
