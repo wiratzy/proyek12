@@ -37,8 +37,8 @@ class LoginController extends Controller
                 return view('karyawan.index', compact('products','title', 'slug'));
             } else {
                 $user->role = 'customer';
-                $user->save(); // Simpan perubahan role ke database
-                return view('user');
+                $products = Product::all()->filter(request([('search')]))->paginate(2)->withQueryString();
+                return view('products.index', compact('products'));
             }
         } else {
             // Login gagal
