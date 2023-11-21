@@ -1,0 +1,1 @@
+<h1>Halaman User</h1><?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/user.blade.php ENDPATH**/ ?>

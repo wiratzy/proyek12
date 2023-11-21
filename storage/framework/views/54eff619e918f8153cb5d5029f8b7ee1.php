@@ -1,5 +1,4 @@
-@extends ('layoutkaryawan.main')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <table class="table table-bordered table-striped" id="example1">
         <thead>
             <tr>
@@ -19,28 +18,28 @@
         </thead>
         <tbody>
 
-            @foreach ($dataProduk as $item)
+            <?php $__currentLoopData = $dataProduk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td>{{ $no }}</td>
-                    <td>{{ $item->Name }}</td>
-                    <td>{{ $item->ProductCode }}</td>
-                    <td>{{ $item->Description }}</td>
-                    <td>{{ $item->Price }}</td>
-                    <td>{{ $item->Stock }}</td>
-                    <td class="text-center"><img width="50" height="50" src="{{ asset('storage/' . $item->ImageURL) }}"
+                    <td><?php echo e($no); ?></td>
+                    <td><?php echo e($item->Name); ?></td>
+                    <td><?php echo e($item->ProductCode); ?></td>
+                    <td><?php echo e($item->Description); ?></td>
+                    <td><?php echo e($item->Price); ?></td>
+                    <td><?php echo e($item->Stock); ?></td>
+                    <td class="text-center"><img width="50" height="50" src="<?php echo e(asset('storage/' . $item->ImageURL)); ?>"
                             class="img-responsive"></td>
                     <td>
-                        <a href="/dataProduk/editProduk/{{ $item->ProductID }}" class="btn btn-sm btn-secondary"><i
+                        <a href="/dataProduk/editProduk/<?php echo e($item->ProductID); ?>" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-wrench"></i> Edit</a>
-                        <a href="/dataProduk/destroyProduk/{{ $item->ProductID }}" class="btn btn-sm btn-danger">
+                        <a href="/dataProduk/destroyProduk/<?php echo e($item->ProductID); ?>" class="btn btn-sm btn-danger">
                             Hapus</a>
                     </td>
                 </tr>
                 <?php $no++; ?>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
-@endsection
+<?php $__env->stopSection(); ?>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -50,8 +49,9 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+                <form method="post" action="<?php echo e(route('products.store')); ?>" enctype="multipart/form-data">
+                    <?php echo e(csrf_field()); ?>
+
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama:</label>
                         <input type="text" name="Name" class="form-control" required>
@@ -91,3 +91,5 @@
         </div>
     </div>
 </div>
+
+<?php echo $__env->make('layoutkaryawan.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/karyawan/produk.blade.php ENDPATH**/ ?>

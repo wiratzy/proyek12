@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Product;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -11,7 +12,8 @@ class CustomerController extends Controller
  
     public function index()
     {
-        return view('register');
+        $products = Product::latest()->filter(request([('search')]))->paginate(2)->withQueryString();
+        return view('frontend/index', compact('products'));
     }
     public function create()
     {

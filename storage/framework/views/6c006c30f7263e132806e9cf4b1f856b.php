@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <body class="antialiased">
     <div class="container">
         <h1 class="text-center">Display Product</h1>
@@ -9,32 +7,33 @@
                 <form action="/products" method="GET">
                     <div class="input-group mb-3 ">
                         <input type="text" class="form-control" placeholder="Search" name="search"
-                        value="{{ request('search') }}">
+                        value="<?php echo e(request('search')); ?>">
                         <button class="btn btn-danger" type="submit">Search</button>
                     </div>
                 </form>
             </div>
             
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach ($products as $product)
+                <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col">
-                    <img src="{{ asset('storage/'. $product->ImageURL) }}"  class="card-img-top">
+                    <img src="<?php echo e(asset('storage/'. $product->ImageURL)); ?>"  class="card-img-top">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h3>{{ $product->Name }}</h3>
-                            <p class="card-text">{{ $product->Description }}</p>
-                            <h3>{{ $product->Price }}</h3>
+                            <h3><?php echo e($product->Name); ?></h3>
+                            <p class="card-text"><?php echo e($product->Description); ?></p>
+                            <h3><?php echo e($product->Price); ?></h3>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-body-secondary">Stock: {{ $product->Stock }} <a href="/login" class="text-decoration-none">❤️</a></small>
+                                <small class="text-body-secondary">Stock: <?php echo e($product->Stock); ?> <a href="/login" class="text-decoration-none">❤️</a></small>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            {{ $products->links() }}
+            <?php echo e($products->links()); ?>
+
         </div>
 
 
@@ -43,7 +42,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
-@endsection
+<?php $__env->stopSection(); ?>
 </body>
 
 </html>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/frontend/index.blade.php ENDPATH**/ ?>

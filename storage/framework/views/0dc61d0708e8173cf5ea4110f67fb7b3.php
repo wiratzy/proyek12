@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/dashboard/index.blade.php ENDPATH**/ ?>

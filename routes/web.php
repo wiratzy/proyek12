@@ -35,8 +35,7 @@ Route::post('login', [LoginController::class, 'store'])->name('login.store');
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('storeCustomer', [RegisterController::class, 'storeCustomer'])->name('storeCustomer');
 
-
-
+Route::get('frontend/index', [CustomerController::class, 'index']);
 
 
 Route::post('logout', function () {
@@ -47,15 +46,15 @@ Route::post('logout', function () {
 Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('RedirectIfNotKaryawan');
 // Route::get('login', [LoginController::class, 'index']);
 Route::post('dashboard/dashboardKaryawan', [LoginController::class, 'store']);
-Route::get('customer/index', function(){
-    $customers = Customer::all();
-    return view('customer.index',compact('customers'));
-});
+// Route::get('customer/index', function(){
+//     $customers = Customer::all();
+//     return view('customer.index',compact('customers'));
+// });
 // Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'] );
 // Route::get('customer.edit', [KaryawanController::class,'edit']);
 // Route::get('customer/{$id}/edit', [KaryawanController::class, 'edit']);
 // Route::post('customer/{$id}/edit', [KaryawanController::class, 'update']);
-Route::resource('customer', KaryawanController::class);
+// Route::resource('customer', KaryawanController::class);
 Route::resource('products', ProductController::class);
 // Route::resource('register', CustomerController::class);
 

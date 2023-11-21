@@ -34,11 +34,11 @@ class LoginController extends Controller
                 $title = "Dashboard Karyawan";
                 $slug = "dashboard";
                 $products = Product::all();
-                return view('karyawan.index', compact('products','title', 'slug'));
+                return view('karyawan.index', compact('products', 'title', 'slug'));
             } else {
                 $user->role = 'customer';
-                $user->save(); // Simpan perubahan role ke database
-                return view('user');
+                $user->save();
+                return redirect('frontend/index');
             }
         } else {
             // Login gagal

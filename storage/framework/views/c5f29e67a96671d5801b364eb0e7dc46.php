@@ -1,0 +1,1 @@
+<h1>halaman karyawan</h1><?php /**PATH C:\Users\wiran\Documents\test\resources\views/karyawan.blade.php ENDPATH**/ ?>

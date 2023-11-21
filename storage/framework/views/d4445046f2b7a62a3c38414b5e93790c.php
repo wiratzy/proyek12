@@ -1,0 +1,1 @@
+<h1>Halaman Admin</h1><?php /**PATH C:\Users\wiran\Documents\test\resources\views/admin.blade.php ENDPATH**/ ?>
