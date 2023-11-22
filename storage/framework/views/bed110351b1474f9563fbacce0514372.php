@@ -1,19 +1,18 @@
-@extends('layoutadmin.main')
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('adminlte')); ?>/plugins/icheckbootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('adminlte')); ?>/plugins/jqvmap/jqvmap.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('adminlte')); ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="<?php echo e(asset('adminlte')); ?>/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/summernote/summernote-bs4.min.css">
-@endsection
-@section('content')
+    <link rel="stylesheet" href="<?php echo e(asset('adminlte')); ?>/plugins/summernote/summernote-bs4.min.css">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <!-- Small boxes (Stat box) -->
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -22,7 +21,7 @@
                     <p>New Orders</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-arrow-graph-up-right"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -32,13 +31,13 @@
             <!-- small box -->
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                    <p>Bounce Rate</p>
+                    <h3><?php echo e($jumlahProduk); ?></h3>
+                    <p>Produk Terdaftar</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
+                    <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/dataProduk" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -46,34 +45,15 @@
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>{{ $dataKaryawan }}</h3>
-                    <p>Karyawan Terdaftar</p>
+                    <h3><?php echo e($jumlahCustomer); ?></h3>
+                    <p>Customer Terdaftar</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-stalker"></i>
                 </div>
-                <a href="/dataKaryawan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/dataCustomer" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <!-- ./col -->
-        
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-secondary">
-                <div class="inner">
-                    <h3>{{ $dataCustomer }}</h3>
-                    <p>customer Terdaftar</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="/dataCustomerAdm" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        
-        <!-- ./col -->
     </div>
     <!-- /.row -->
     <!-- Main row -->
@@ -516,8 +496,7 @@
                 </div>
                 <div class="card-body">
                     <canvas class="chart" id="line-chart"
-                        style="min-height: 250px;
-height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        style="min-height: 250px;height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer bg-transparent">
@@ -589,28 +568,30 @@ height: 250px; max-height: 250px; max-width: 100%;"></canvas>
         <!-- right col -->
     </div>
     <!-- /.row (main row) -->
-@endsection
-@section('javascript')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascript'); ?>
     <!-- ChartJS -->
-    <script src="{{ asset('adminlte') }}/plugins/chart.js/Chart.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/chart.js/Chart.min.js"></script>
     <!-- Sparkline -->
-    <script src="{{ asset('adminlte') }}/plugins/sparklines/sparkline.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/sparklines/sparkline.js"></script>
     <!-- JQVMap -->
-    <script src="{{ asset('adminlte') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="{{ asset('adminlte') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
     <!-- jQuery Knob Chart -->
-    <script src="{{ asset('adminlte') }}/plugins/jqueryknob/jquery.knob.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/jqueryknob/jquery.knob.min.js"></script>
     <!-- daterangepicker -->
-    <script src="{{ asset('adminlte') }}/plugins/moment/moment.min.js"></script>
-    <script src="{{ asset('adminlte') }}/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/moment/moment.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('adminlte') }}/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Summernote -->
-    <script src="{{ asset('adminlte') }}/plugins/summernote/summernotebs4.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/summernote/summernotebs4.min.js"></script>
     <!-- overlayScrollbars -->
-    <script src="{{ asset('adminlte') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('adminlte') }}/dist/js/demo.js"></script>
+    <script src="<?php echo e(asset('adminlte')); ?>/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('adminlte') }}/dist/js/pages/dashboard.js"></script>
-@endsection
+    <script src="<?php echo e(asset('adminlte')); ?>/dist/js/pages/dashboard.js"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layoutkaryawan.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Riski Firmansah\Documents\Skool\SEM 3\proyek12\resources\views/karyawan/index.blade.php ENDPATH**/ ?>

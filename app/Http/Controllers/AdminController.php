@@ -48,7 +48,7 @@ class AdminController extends Controller
             'role' => 'karyawan',
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt('12345'),
+            'password' => bcrypt($request->password),
             'created_at' => now(),
             'updated_at' => now()
         ]);

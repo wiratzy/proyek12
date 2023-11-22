@@ -33,7 +33,7 @@ class LoginController extends Controller
                 // $title = "Dashboard Karyawan";
                 // $slug = "dashboard";
                 // $products = Product::all();
-                return redirect('dashboard');
+                return redirect('dashboardKaryawan');
             } else {
                 $user->role = 'customer';
                 $user->save();

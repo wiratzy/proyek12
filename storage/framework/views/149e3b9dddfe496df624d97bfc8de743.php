@@ -5,7 +5,7 @@
 <aside class="main-sidebar control-sidebar-dark elevation-4">
     <!-- Brand Logo -->
     <!-- <a href="/" class="brand-link">
-<img src="{{ asset('adminlte') }}/dist/img/AdminLTELogo.png"
+<img src="<?php echo e(asset('adminlte')); ?>/dist/img/AdminLTELogo.png"
 alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
 .8">
 <span class="brand-text font-weight-light">CRUD LARAVEL</span>
@@ -15,11 +15,11 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('adminlte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                <img src="<?php echo e(asset('adminlte')); ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="/profil" class="d-block text-decoration-none">{{ auth()->user()->name }}</a>
+                <a href="/profil" class="d-block text-decoration-none"><?php echo e(auth()->user()->name); ?></a>
             </div>
         </div>
         <!-- Sidebar Menu -->
@@ -27,11 +27,10 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
->>>>>>> ba95dd4ddeec193f41762d9b7a401d04dc62b7d7
-with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link
-{{ $slug == 'dashboardKaryawan' ? 'active' : '' }}">
+                    <a href="dashboardAdmin" class="nav-link
+                    <?php echo e($slug == 'admin' ? 'active' : ''); ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -40,7 +39,7 @@ with font-awesome or any other icon font library -->
                 </li>
                 <li class="nav-item">
                     <a href="/profil" class="nav-link
-{{ $slug == 'profil' ? 'active' : '' }}">
+                <?php echo e($slug == 'profil' ? 'active' : ''); ?>">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profil
@@ -48,8 +47,8 @@ with font-awesome or any other icon font library -->
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dataCustomer" class="nav-link
-{{ $slug == 'customer' ? 'active' : '' }}">
+                    <a href="/dataCustomerAdm" class="nav-link
+                    <?php echo e($slug == 'customer' ? 'active' : ''); ?>">
                         <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                         <p>
                             Data Customer
@@ -57,8 +56,17 @@ with font-awesome or any other icon font library -->
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dataProduk" class="nav-link
-{{ $slug == 'produk' ? 'active' : '' }}">
+                    <a href="/dataKaryawan" class="nav-link
+                    <?php echo e($slug == 'datakaryawan' ? 'active' : ''); ?>">
+                        <i class="nav-icon fa fa-users" aria-hidden="true"></i>
+                        <p>
+                            Data Karyawan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dataProdukAdm" class="nav-link
+                    <?php echo e($slug == 'produk' ? 'active' : ''); ?>">
                         <i class="nav-icon fa fa-tags" aria-hidden="true"></i>
                         <p>
                             Data Produk
@@ -68,7 +76,7 @@ with font-awesome or any other icon font library -->
                 </li>
                 <li class="nav-item">
                     <a href="/dataPenjualan" class="nav-link
-{{ $slug == 'penjualan' ? 'active' : '' }}">
+                    <?php echo e($slug == 'penjualan' ? 'active' : ''); ?>">
                         <i class="nav-icon fa fa-shopping-cart" aria-hidden="true"></i>
                         <p>
                             Data Penjualan
@@ -78,14 +86,15 @@ with font-awesome or any other icon font library -->
 
                 <!-- <div class="d-flex align-items-end"> -->
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link"
+                    <a href="<?php echo e(route('logout')); ?>" class="nav-link"
                         onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
                         <i class="nav-icon fa fa-arrow-circle-left" aria-hidden="true"></i>
-                        {{ __('Logout') }}
+                        <?php echo e(__('Logout')); ?>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
+
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                            <?php echo csrf_field(); ?>
                         </form>
                     </a>
                 </li>
@@ -99,13 +108,15 @@ with font-awesome or any other icon font library -->
 </aside>
 
 <!-- <div class="" >
-    <a class="" href="{{ route('logout') }}"
+    <a class="" href="<?php echo e(route('logout')); ?>"
        onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
-        {{ __('Logout') }}
+        <?php echo e(__('Logout')); ?>
+
     </a>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-        @csrf
+    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+        <?php echo csrf_field(); ?>
     </form>
 </div> -->
+<?php /**PATH C:\Users\Riski Firmansah\Documents\Skool\SEM 3\proyek12\resources\views/layoutadmin/sidebar.blade.php ENDPATH**/ ?>

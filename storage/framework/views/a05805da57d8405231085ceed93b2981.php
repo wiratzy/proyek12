@@ -1,5 +1,4 @@
-@extends ('layoutadmin.main')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <table class="table table-bordered table-striped" id="example1">
         <thead>
             <tr>
@@ -12,26 +11,26 @@
         </thead>
         <tbody>
 
-            @foreach ($dataKaryawan as $item)
+            <?php $__currentLoopData = $dataKaryawan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td>{{ $no }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->email }}</td>
-                    <!-- <td class="text-center"><img width="50" height="50" src="{{ asset($item->image_path) }}" class="img-responsive"></td> -->
+                    <td><?php echo e($no); ?></td>
+                    <td><?php echo e($item->name); ?></td>
+                    <td><?php echo e($item->email); ?></td>
+                    <!-- <td class="text-center"><img width="50" height="50" src="<?php echo e(asset($item->image_path)); ?>" class="img-responsive"></td> -->
                     <td>
-                        <a href="dataKaryawan/editKaryawan/{{ $item->id }}" class="btn btn-sm btn-secondary"><i
+                        <a href="dataKaryawan/editKaryawan/<?php echo e($item->id); ?>" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-wrench"></i> Edit</a>
-                        <a href="/dataKaryawan/destroyKaryawan{{ $item->id }}" class="btn btn-sm btn-danger"><i
+                        <a href="/dataKaryawan/destroyKaryawan<?php echo e($item->id); ?>" class="btn btn-sm btn-danger"><i
                                 class="fa fa-trash"></i> Hapus</a>
-                        <a href="/dataKaryawan/resetPassword/{{ $item->id }}" class="btn btn-sm btn-warning"><i
+                        <a href="/dataKaryawan/resetPassword/<?php echo e($item->id); ?>" class="btn btn-sm btn-warning"><i
                                 class="fa fa-recycle"></i> Reset Password</a>
                     </td>
                 </tr>
                 <?php $no++; ?>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
-@endsection
+<?php $__env->stopSection(); ?>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -42,7 +41,8 @@
             <div class="modal-body">
 
                 <form method="post" action="/dataKaryawan/storeKaryawan" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama:</label>
                         <input type="text" name="name" class="form-control" required>
@@ -66,3 +66,5 @@
         </div>
     </div>
 </div>
+
+<?php echo $__env->make('layoutadmin.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Riski Firmansah\Documents\Skool\SEM 3\proyek12\resources\views/admin/karyawan.blade.php ENDPATH**/ ?>

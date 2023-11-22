@@ -35,7 +35,7 @@
                             <i class="fa fa-wrench"></i>
                             Edit
                         </a>
-                        <a href="/dataProdukAdm/destroyProduk/{{ $item->ProductID }}" class="btn btn-sm btn-danger">
+                        <a href="/dataProdukAdm/destroyProduk/{{ $item->ProductID }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
                             Hapus</a>
                     </td>
                 </tr>

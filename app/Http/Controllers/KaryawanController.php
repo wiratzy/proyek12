@@ -13,16 +13,17 @@ class KaryawanController extends Controller
     {
         $products = Product::all();
         $title = "Dashboard Karyawan";
-        $slug = "dashboard";
+        $slug = "dashboardKaryawan";
         return view('karyawan/index', compact('products', 'title', 'slug'));
     }
     public function show()
     {
         $jumlahCustomer = User::where('role','=','customer')
         ->count();
+        $jumlahProduk = Product::count();
         $title = "Dashboard Karyawan";
-        $slug = "dashboard";
-        return view('karyawan/index', compact('jumlahCustomer', 'title', 'slug'));
+        $slug = "dashboardKaryawan";
+        return view('karyawan/index', compact('jumlahCustomer','jumlahProduk', 'title', 'slug'));
     }
 
 
@@ -128,10 +129,10 @@ class KaryawanController extends Controller
 
         return view('karyawan.produk', compact("title", "slug", "dataProduk", "no"));
     }
-    public function createProduk()
-    {
-        return view('karyawan.createprod');
-    }
+    // public function createProduk()
+    // {
+    //     return view('karyawan.createprod');
+    // }
 
     // public function storeProduk(Request $request)
     // {
@@ -256,5 +257,39 @@ class KaryawanController extends Controller
 
         return redirect('/dataProduk');
     }
+
+
+    // PROFIL
+    // public function profil()
+    // {
+    //     $dataProfil =  auth()->user() ;
+    //     $title = "Profil";
+    //     $slug = "profil";
+    //     return view('karyawan/profil', compact('dataProfil', 'title', 'slug'));
+    // }
+
+    // public function editProfil($id)
+    // {
+    //     $title = 'Perbarui Data Customer';
+    //     $slug = 'profil';
+    //     $dataProfil = User::
+    //         where('id', '=', auth()->user()->id)
+    //         ->first();
+
+    //     return view('karyawan.profil', compact('title', 'slug', 'dataProfil'));
+    // }
+
+    // public function updateProfil(Request $request, $id)
+    // {
+    //     $id = $request->auth()->user()->id;
+    //     User::where('id', '=', $id)
+    //         ->update([
+    //             'name' => $request->name,
+    //             'email' => $request->email,
+    //             'password' => $request->password->bcrypt(),
+
+    //         ]);
+    //     return redirect('/profil');
+    // }
 
 }
