@@ -13,9 +13,17 @@ class AdminController extends Controller
         $title = "Dashboard Admin";
         $slug = "karyawan";
         $dataKaryawan = User::where('role', 'karyawan')->get();
-
-        return view('admin.karyawan', compact('dataKaryawan', 'no', 'title', 'slug'));
+        return view('admin/index', compact('dataKaryawan', 'no', 'title', 'slug'));
     }
+    public function show()
+    {
+        $jumlahCustomer = User::where('role','=','customer')
+        ->count();
+        $title = "Dashboard Admin";
+        $slug = "dashboard";
+        return view('admin/index', compact('jumlahCustomer', 'title', 'slug'));
+    }
+
     public function createKaryawan()
     {
         $title = 'Tambah Data Karyawan';

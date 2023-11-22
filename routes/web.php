@@ -63,6 +63,7 @@ Route::get('customer/create', [CustomerController::class, 'create'])->name('cust
 
 //Dashboard Admin
 Route::get('/dataKaryawan', [AdminController::class, 'index'])->middleware('RedirectIfNotAdmin');
+Route::get('/dataKaryawan', [AdminController::class, 'show'])->middleware('RedirectIfNotKaryawan');
 Route::post('/dataKaryawan/storeKaryawan', [AdminController::class, 'storeKaryawan'])->middleware('RedirectIfNotAdmin');
 Route::get('/dataKaryawan/createKaryawan', [AdminController::class, 'createKaryawan'])->middleware('RedirectIfNotAdmin');
 Route::get('dataKaryawan/editKaryawan/{id}', [AdminController::class, 'editKaryawan'])->middleware('RedirectIfNotAdmin');
@@ -72,6 +73,7 @@ Route::get('/dataKaryawan/resetPassword/{id}', [AdminController::class, 'ResetPa
 
                             // KARYAWAN DATA TABLE CUSTOMER
                             Route::get('dashboard', [KaryawanController::class, 'index'])->middleware('RedirectIfNotKaryawan');
+                            Route::get('dashboard', [KaryawanController::class, 'show'])->middleware('RedirectIfNotKaryawan');
                             Route::get('/dataCustomer', [KaryawanController::class, 'dataCust'])->middleware('RedirectIfNotKaryawan');
                             Route::post('/dataCustomer/storeCust', [KaryawanController::class, 'storeCust'])->middleware('RedirectIfNotKaryawan');
                             Route::get('/dataCustomer/createCust', [KaryawanController::class, 'createCust'])->middleware('RedirectIfNotKaryawan');

@@ -16,6 +16,14 @@ class KaryawanController extends Controller
         $slug = "dashboard";
         return view('karyawan/index', compact('products', 'title', 'slug'));
     }
+    public function show()
+    {
+        $jumlahCustomer = User::where('role','=','customer')
+        ->count();
+        $title = "Dashboard Karyawan";
+        $slug = "dashboard";
+        return view('karyawan/index', compact('jumlahCustomer', 'title', 'slug'));
+    }
 
 
     public function storeKaryawan()
