@@ -31,10 +31,10 @@ class LoginController extends Controller
                 $user->role = 'karyawan';
                 $user->save(); // Simpan perubahan role ke database
                 // return redirect()->route('dashboard.karyawan');
-                $title = "Dashboard Karyawan";
-                $slug = "dashboard";
-                $products = Product::all();
-                return view('karyawan.index', compact('products', 'title', 'slug'));
+                // $title = "Dashboard Karyawan";
+                // $slug = "dashboard";
+                // $products = Product::all();
+                return redirect('dashboard');
             } else {
                 $user->role = 'customer';
                 $user->save();

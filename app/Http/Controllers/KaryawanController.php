@@ -14,7 +14,7 @@ class KaryawanController extends Controller
         $products = Product::all();
         $title = "Dashboard Karyawan";
         $slug = "dashboard";
-        return view('karyawan.index', compact('products', 'title', 'slug'));
+        return view('karyawan/index', compact('products', 'title', 'slug'));
     }
 
 
@@ -193,7 +193,7 @@ class KaryawanController extends Controller
             // Step 6: Store the image file
             $path = $request->file('ImageURL')->store('images');
 
-            // dd($);
+            // dd($path);
             // Step 7: Redirect on success
         } else {
             // Handle the case where the file doesn't exist in the request
@@ -210,7 +210,6 @@ class KaryawanController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
         return redirect('/dataProduk');
 
     }

@@ -12,7 +12,7 @@
                 <th>GAMBAR</th>
 
                 <th><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i
-                            class="fa fa-user-plus fa-lg"></i>
+                            class="nav-icon fa fa-tags"></i>
                         Produk</button></th>
             </tr>
         </thead>
