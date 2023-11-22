@@ -29,7 +29,7 @@ use App\Http\Controllers\ProfileControllerController;
 Route::get('/', [FrontendController::class, 'index']);
 
 
-Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('RedirectIfLogin');
+Route::get('login', [LoginController::class, 'index'])->name('login');
 // Route::get('login', [KaryawanController::class, 'index'])->name('index')->middleware('RedirecIfNotKaryawan');
 Route::post('login', [LoginController::class, 'store'])->name('login.store');
 Route::get('register', [RegisterController::class, 'index'])->name('register');
@@ -63,7 +63,7 @@ Route::get('customer/create', [CustomerController::class, 'create'])->name('cust
 
 //Dashboard Admin
 Route::get('/dataKaryawan', [AdminController::class, 'index'])->middleware('RedirectIfNotAdmin');
-Route::get('/dataKaryawan', [AdminController::class, 'show'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataKaryawan', [AdminController::class, 'show'])->middleware('RedirectIfNotAdmin');
 Route::post('/dataKaryawan/storeKaryawan', [AdminController::class, 'storeKaryawan'])->middleware('RedirectIfNotAdmin');
 Route::get('/dataKaryawan/createKaryawan', [AdminController::class, 'createKaryawan'])->middleware('RedirectIfNotAdmin');
 Route::get('dataKaryawan/editKaryawan/{id}', [AdminController::class, 'editKaryawan'])->middleware('RedirectIfNotAdmin');

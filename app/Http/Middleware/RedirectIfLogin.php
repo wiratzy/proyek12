@@ -9,11 +9,13 @@ class RedirectIfLogin
 {
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && $request->is('customer')) {
-            return redirect('products.index'); // Ganti dengan URL halaman yang diinginkan
-        }elseif (Auth::check() && $request->is('karyawan')) {
-            return redirect('karyawan.index'); // Ganti dengan URL halaman yang diinginkan   
+        // if (Auth::check() && $request->is('customer')) {
+        //     return redirect('products.index'); // Ganti dengan URL halaman yang diinginkan
+        // }elseif (Auth::check() && $request->is('karyawan')) {
+        //     return redirect('karyawan.index'); // Ganti dengan URL halaman yang diinginkan   
+        // }elseif (Auth::check() && $request->is('admin')){
+        //     return redirect('admin.index');
         }
-        return $next($request);
-    }
+        // return $next($request);
+//     }
 }

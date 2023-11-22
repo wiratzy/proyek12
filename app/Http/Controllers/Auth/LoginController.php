@@ -24,7 +24,8 @@ class LoginController extends Controller
             $user = auth()->user();
             if ($user->isAdmin()) {
                 $user->role = 'admin';
-                return redirect('admin');
+                $user->save();
+                return redirect('dataKaryawan');
             } elseif ($user->isKaryawan()) {
                 $user->role = 'karyawan';
                 $user->save(); // Simpan perubahan role ke database
