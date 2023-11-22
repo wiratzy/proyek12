@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <h2>Update Data Customer</h2>
-    <form action="/dataProduk/updateProduk/<?php echo e($dataProduk->ProductID); ?>" method="POST" enctype="multipart/form-data">
+    <form action="/dataProdukAdm/updateProduk/<?php echo e($dataProduk->ProductID); ?>" method="POST" enctype="multipart/form-data">
         <?php echo e(csrf_field()); ?>
 
             <input type="hidden" name="ProductID" value="<?php echo e($dataProduk->ProductID); ?>">
@@ -33,4 +33,4 @@
         <button type="submit" class="btn btn-primary">SIMPAN</button>
     </form>
     <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layoutkaryawan.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/karyawan/updateproduk.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layoutkaryawan.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/admin/updateProduk.blade.php ENDPATH**/ ?>

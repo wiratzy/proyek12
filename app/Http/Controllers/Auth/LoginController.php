@@ -25,7 +25,7 @@ class LoginController extends Controller
             if ($user->isAdmin()) {
                 $user->role = 'admin';
                 $user->save();
-                return redirect('dataKaryawan');
+                return redirect('dashboardAdmin');
             } elseif ($user->isKaryawan()) {
                 $user->role = 'karyawan';
                 $user->save(); // Simpan perubahan role ke database
@@ -37,7 +37,7 @@ class LoginController extends Controller
             } else {
                 $user->role = 'customer';
                 $user->save();
-                return redirect('frontend/index');
+                return redirect('products');
             }
         } else {
             // Login gagal

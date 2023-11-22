@@ -2,7 +2,7 @@
 <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{ asset('adminlte') }}/dist/img/polindra.png" alt="AdminLTELogo" height="100"
+        <img class="animation__shake" src="{{ asset('adminlte') }}/dist/img/tokoririn.png" alt="AdminLTELogo" height="100"
             width="100">
     </div>
     @include('layoutadmin.sidebar');

@@ -4,7 +4,7 @@
         <h1 class="text-center">Display Product</h1>
         <div class="row justify-content-center mb-3">
             <div class="col-md-6">
-                <form action="/products" method="GET">
+                <form action="/frontend/index" method="GET">
                     <div class="input-group mb-3 ">
                         <input type="text" class="form-control" placeholder="Search" name="search"
                         value="<?php echo e(request('search')); ?>">

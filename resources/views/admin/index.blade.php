@@ -46,8 +46,24 @@
             <!-- small box -->
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>{{ $jumlahCustomer }}</h3>
-                    <p>Customer Terdaftar</p>
+                    <h3>{{ $dataKaryawan }}</h3>
+                    <p>Karyawan Terdaftar</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrowcircle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+                <div class="inner">
+                    <h3>{{ $dataCustomer }}</h3>
+                    <p>customer Terdaftar</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>

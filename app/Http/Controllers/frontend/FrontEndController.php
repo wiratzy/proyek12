@@ -13,4 +13,9 @@ class FrontendController extends Controller
         $products = Product::latest()->filter(request([('search')]))->paginate(2)->withQueryString();
         return view('frontend.index', compact('products'));
     }
+
+    public function depan()
+    {
+        
+    }
 }

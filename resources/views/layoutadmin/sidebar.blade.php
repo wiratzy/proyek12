@@ -19,7 +19,7 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="/profil" class="d-block">{{ auth()->user()->name }}</a>
+                <a href="/profil" class="d-block text-decoration-none">{{ auth()->user()->name }}</a>
             </div>
         </div>
         <!-- Sidebar Menu -->
@@ -29,8 +29,8 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link
-                    {{ $slug == 'dashboard' ? 'active' : '' }}">
+                    <a href="dashboardAdmin" class="nav-link
+                    {{ $slug == 'admin' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -47,7 +47,7 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dataCustomer" class="nav-link
+                    <a href="/dataCustomerAdm" class="nav-link
                     {{ $slug == 'customer' ? 'active' : '' }}">
                         <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                         <p>
@@ -57,7 +57,7 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
                 </li>
                 <li class="nav-item">
                     <a href="/dataKaryawan" class="nav-link
-                    {{ $slug == 'karyawan' ? 'active' : '' }}">
+                    {{ $slug == 'datakaryawan' ? 'active' : '' }}">
                         <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                         <p>
                             Data Karyawan
@@ -65,7 +65,7 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dataProduk" class="nav-link
+                    <a href="/dataProdukAdm" class="nav-link
                     {{ $slug == 'produk' ? 'active' : '' }}">
                         <i class="nav-icon fa fa-tags" aria-hidden="true"></i>
                         <p>

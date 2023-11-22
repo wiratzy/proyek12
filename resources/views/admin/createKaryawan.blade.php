@@ -1,6 +1,6 @@
 @extends('layoutadmin.main')
 @section('content')
-    <h2>Penambahan Customer</h2>
+    <h2>Penambahan Karyawan</h2>
     <form action="/dataKaryawan/storeKaryawan" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
