@@ -12,7 +12,30 @@
                     </div>
                 </form>
             </div>
-            
+            <!-- Mulai carousel di sini -->
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="carousel-item <?php echo e($key === 0 ? 'active' : ''); ?>">
+                        <img src="<?php echo e(asset('storage/'. $product->ImageURL)); ?>" class="d-block w-100" alt="<?php echo e($product->Name); ?>">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><?php echo e($product->Name); ?></h5>
+                            <p><?php echo e($product->Description); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Sebelumnya</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Berikutnya</span>
+            </button>
+        </div>
+        <!-- Selesai carousel -->
+
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col">
