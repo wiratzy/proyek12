@@ -21,7 +21,7 @@
                     <td>
                         <a href="dataKaryawan/editKaryawan/{{ $item->id }}" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-wrench"></i> Edit</a>
-                        <a href="/dataKaryawan/destroyKaryawan{{ $item->id }}" class="btn btn-sm btn-danger"><i
+                        <a href="/dataKaryawan/destroyKaryawan/{{ $item->id }}" class="btn btn-sm btn-danger"><i
                                 class="fa fa-trash"></i> Hapus</a>
                         <a href="/dataKaryawan/resetPassword/{{ $item->id }}" class="btn btn-sm btn-warning"><i
                                 class="fa fa-recycle"></i> Reset Password</a>

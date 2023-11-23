@@ -30,8 +30,8 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
 >>>>>>> ba95dd4ddeec193f41762d9b7a401d04dc62b7d7
 with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link
-<?php echo e($slug == 'dashboard' ? 'active' : ''); ?>">
+                    <a href="/dashboardKaryawan" class="nav-link
+<?php echo e($slug == 'dashboardKaryawan' ? 'active' : ''); ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard

@@ -53,6 +53,7 @@
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
+            
         </div>
         <div class="d-flex justify-content-end">
             <?php echo e($products->links()); ?>

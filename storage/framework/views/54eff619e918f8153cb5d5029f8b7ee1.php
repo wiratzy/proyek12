@@ -5,7 +5,7 @@
 
                 <th>NO</th>
                 <th>NAMA</th>
-                <th>Produk Kode</th>
+                <th>PRODUK KODE</th>
                 <th>DESKRIPSI</th>
                 <th>HARGA</th>
                 <th>STOK</th>
@@ -31,7 +31,8 @@
                     <td>
                         <a href="/dataProduk/editProduk/<?php echo e($item->ProductID); ?>" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-wrench"></i> Edit</a>
-                        <a href="/dataProduk/destroyProduk/<?php echo e($item->ProductID); ?>" class="btn btn-sm btn-danger">
+                        <a href="/dataProduk/destroyProduk/<?php echo e($item->ProductID); ?>" class="btn btn-sm btn-danger"><i
+                                class="fa fa-trash"></i>
                             Hapus</a>
                     </td>
                 </tr>
