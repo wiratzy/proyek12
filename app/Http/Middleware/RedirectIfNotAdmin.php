@@ -15,9 +15,9 @@ class RedirectIfNotAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->role !== 'admin')
-        {
-            return abort(403, 'Akses Di Tolak');
+        if (auth()->user()->role !== 'admin') {
+            // dd($request->user()->role);
+            return redirect()->back();
         }
         return $next($request);
     }

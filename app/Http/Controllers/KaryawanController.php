@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
+
     public function index()
     {
         $products = Product::all();
@@ -18,12 +19,12 @@ class KaryawanController extends Controller
     }
     public function show()
     {
-        $jumlahCustomer = User::where('role','=','customer')
-        ->count();
+        $jumlahCustomer = User::where('role', '=', 'customer')
+            ->count();
         $jumlahProduk = Product::count();
         $title = "Dashboard Karyawan";
         $slug = "dashboardKaryawan";
-        return view('karyawan/index', compact('jumlahCustomer','jumlahProduk', 'title', 'slug'));
+        return view('karyawan/index', compact('jumlahCustomer', 'jumlahProduk', 'title', 'slug'));
     }
 
 
