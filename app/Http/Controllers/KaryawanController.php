@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class KaryawanController extends Controller
 {
@@ -130,57 +131,7 @@ class KaryawanController extends Controller
 
         return view('karyawan.produk', compact("title", "slug", "dataProduk", "no"));
     }
-    // public function createProduk()
-    // {
-    //     return view('karyawan.createprod');
-    // }
-
-    // public function storeProduk(Request $request)
-    // {
-
-    //     $gambar_nama = $_FILES['ImageURL']['name'];
-    //     $gambar_temp = $_FILES['ImageURL']['tmp_name'];
-    //     $result = Product::insert([
-    //         'Name' => $request->Name,
-    //         'Description' => $request->Description,
-    //         'Price' => $request->Price,
-    //         'Stock' => $request->Stock,
-    //         'ProductCode' => $request->ProductCode,
-    //         'ImageURL' => $request->ImageURL,
-    //         'created_at' => now(),
-    //         'updated_at' => now(),
-    //     ]);
-    //     if($result){
-    //         move_uploaded_file($gambar_temp, " {{ assets('storage/images/') }}" . $gambar_nama);
-    //         return redirect('/dataProduk');
-    //     }else{
-    //         return $this->createProduk();
-    //     }
-
-
-    // }
-    // public function storeProduk(Request $request)
-    // {
-    //     $gambar_nama = $request->file('ImageURL')->getClientOriginalName();
-
-    //     $result = Product::create([
-    //         'Name' => $request->Name,
-    //         'Description' => $request->Description,
-    //         'Price' => $request->Price,
-    //         'Stock' => $request->Stock,
-    //         'ProductCode' => $request->ProductCode,
-    //         'ImageURL' => $gambar_nama, // Save the file name, not the file itself
-    //         'created_at' => now(),
-    //         'updated_at' => now(),
-    //     ]);
-
-    //     if ($result) {
-    //         $request->file('ImageURL')->storeAs('images', $gambar_nama, 'public'); // Save the file in the public disk under the 'images' directory
-    //         return redirect('/dataProduk');
-    //     } else {
-    //         return $this->createProduk();
-    //     }
-    // }
+    
 
     public function storeProduk(Request $request)
     {
@@ -259,38 +210,50 @@ class KaryawanController extends Controller
         return redirect('/dataProduk');
     }
 
+    public function profil()
+    {
+        $dataProfil =  auth()->user() ;
+        $title = "Profil";
+        $slug = "profil";
+        return view('karyawan/profil', compact('dataProfil', 'title', 'slug'));
+    }
 
-    // PROFIL
-    // public function profil()
-    // {
-    //     $dataProfil =  auth()->user() ;
-    //     $title = "Profil";
-    //     $slug = "profil";
-    //     return view('karyawan/profil', compact('dataProfil', 'title', 'slug'));
-    // }
+    public function editProfil($id)
+    {
+        $title = 'Perbarui Data Customer';
+        $slug = 'profil';
+        $dataProfil = User::
+            where('id', '=', auth()->user()->id)
+            ->first();
 
-    // public function editProfil($id)
-    // {
-    //     $title = 'Perbarui Data Customer';
-    //     $slug = 'profil';
-    //     $dataProfil = User::
-    //         where('id', '=', auth()->user()->id)
-    //         ->first();
+        return view('karyawan.profil', compact('title', 'slug', 'dataProfil'));
+    }
 
-    //     return view('karyawan.profil', compact('title', 'slug', 'dataProfil'));
-    // }
+    public function updateProfil(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'current_password' => 'required',
+        'new_password' => 'required|min:5|confirmed',
+    ]);
 
-    // public function updateProfil(Request $request, $id)
-    // {
-    //     $id = $request->auth()->user()->id;
-    //     User::where('id', '=', $id)
-    //         ->update([
-    //             'name' => $request->name,
-    //             'email' => $request->email,
-    //             'password' => $request->password->bcrypt(),
+    $user = User::find($id);
 
-    //         ]);
-    //     return redirect('/profil');
-    // }
+    if (!$user) {
+        return redirect()->back()->with('error', 'User not found.');
+    }
+
+    // Check the current password using Hash::check
+    if (Hash::check($request->input('current_password'), $user->password)) {
+        $user->name = $request->input('name');
+        // Update the user's password
+        $user->password = bcrypt($request->input('new_password'));
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile updated successfully!');
+    } else {
+        return redirect()->back()->with('error', 'Current password is incorrect.');
+    }
+}
 
 }

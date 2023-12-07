@@ -21,7 +21,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
                     <?php echo e(config('app.name', 'Laravel')); ?>
@@ -48,10 +48,11 @@
                                     <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
                                 </li>
                             <?php endif; ?>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                            </li>
                         <?php else: ?>
+                            <?php if(Auth::user()->role == "customer") : ?>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -72,13 +73,64 @@
                                     </form>
                                 </div>
                             </li>
+                            <?php elseif(Auth::user()->role == "karyawan") : ?>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <?php echo e(Auth::user()->name); ?>
+
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
+                                    <a class="dropdown-item" href="/dashboardKaryawan">
+                                        Dashboard
+                                    </a>
+
+                                </div>
+                            </li>
+                            <?php elseif(Auth::user()->role == "admin") : ?>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <?php echo e(Auth::user()->name); ?>
+
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
+                                    <a class="dropdown-item" href="/dashboardAdmin">
+                                        Dashboard
+                                    </a>
+
+                                </div>
+                            </li>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="pt-5">
             <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>

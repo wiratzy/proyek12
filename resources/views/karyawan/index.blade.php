@@ -1,7 +1,7 @@
 @extends('layoutkaryawan.main')
 @section('css')
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/jqvmap/jqvmap.min.css">
     <!-- overlayScrollbars -->
@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/summernote/summernote-bs4.min.js">
+    <!-- <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/summernote/summernote-bs4.js"> -->
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/sweetalert2/sweetalert2.all.min.js>
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/sweetalert2/sweetalert2.min.css>
 @endsection
 @section('content')
     <!-- Small boxes (Stat box) -->
@@ -122,7 +127,7 @@
                                     pm</span>
                             </div>
                             <!-- /.direct-chat-infos -->
-                            <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                            <img class="direct-chat-img" src="{{ asset('adminlte') }}/dist/img/user1-128x128.jpg" alt="message user image">
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
                                 Is this template really for free? That's unbelievable!
@@ -139,7 +144,7 @@
                                     pm</span>
                             </div>
                             <!-- /.direct-chat-infos -->
-                            <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                            <img class="direct-chat-img" src="{{ asset('adminlte') }}/dist/img/user3-128x128.jpg" alt="message user image">
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
                                 You better believe it!
@@ -156,7 +161,7 @@
                                     pm</span>
                             </div>
                             <!-- /.direct-chat-infos -->
-                            <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                            <img class="direct-chat-img" src="{{ asset('adminlte') }}/dist/img/user1-128x128.jpg" alt="message user image">
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
                                 Working with AdminLTE on a great new app! Wanna join?
@@ -173,7 +178,7 @@
                                     pm</span>
                             </div>
                             <!-- /.direct-chat-infos -->
-                            <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                            <img class="direct-chat-img" src="{{ asset('adminlte') }}/dist/img/user3-128x128.jpg" alt="message user image">
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
                                 I would love to.
@@ -188,7 +193,7 @@
                         <ul class="contacts-list">
                             <li>
                                 <a href="#">
-                                    <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Avatar">
+                                    <img class="contacts-list-img" src="{{ asset('adminlte') }}/dist/img/user1-128x128.jpg" alt="User Avatar">
                                     <div class="contacts-list-info">
                                         <span class="contacts-list-name">
                                             Count Dracula
@@ -203,7 +208,7 @@
                             <!-- End Contact Item -->
                             <li>
                                 <a href="#">
-                                    <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Avatar">
+                                    <img class="contacts-list-img" src="{{ asset('adminlte') }}/dist/img/user7-128x128.jpg" alt="User Avatar">
                                     <div class="contacts-list-info">
                                         <span class="contacts-list-name">
                                             Sarah Doe
@@ -218,7 +223,7 @@
                             <!-- End Contact Item -->
                             <li>
                                 <a href="#">
-                                    <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Avatar">
+                                    <img class="contacts-list-img" src="{{ asset('adminlte') }}/dist/img/user3-128x128.jpg" alt="User Avatar">
                                     <div class="contacts-list-info">
                                         <span class="contacts-list-name">
                                             Nadia Jolie
@@ -233,7 +238,7 @@
                             <!-- End Contact Item -->
                             <li>
                                 <a href="#">
-                                    <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Avatar">
+                                    <img class="contacts-list-img" src="{{ asset('adminlte') }}/dist/img/user5-128x128.jpg" alt="User Avatar">
                                     <div class="contacts-list-info">
                                         <span class="contacts-list-name">
                                             Nora S. Vans
@@ -248,7 +253,7 @@
                             <!-- End Contact Item -->
                             <li>
                                 <a href="#">
-                                    <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Avatar">
+                                    <img class="contacts-list-img" src="{{ asset('adminlte') }}/dist/img/user6-128x128.jpg" alt="User Avatar">
                                     <div class="contacts-list-info">
                                         <span class="contacts-list-name">
                                             John K.
@@ -263,7 +268,7 @@
                             <!-- End Contact Item -->
                             <li>
                                 <a href="#">
-                                    <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Avatar">
+                                    <img class="contacts-list-img" src="{{ asset('adminlte') }}/dist/img/user8-128x128.jpg" alt="User Avatar">
                                     <div class="contacts-list-info">
                                         <span class="contacts-list-name">
                                             Kenneth M.
@@ -579,18 +584,23 @@
     <script src="{{ asset('adminlte') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
     <script src="{{ asset('adminlte') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
     <!-- jQuery Knob Chart -->
-    <script src="{{ asset('adminlte') }}/plugins/jqueryknob/jquery.knob.min.js"></script>
+    <script src="{{ asset('adminlte') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
     <!-- daterangepicker -->
     <script src="{{ asset('adminlte') }}/plugins/moment/moment.min.js"></script>
     <script src="{{ asset('adminlte') }}/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('adminlte') }}/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{ asset('adminlte') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Summernote -->
-    <script src="{{ asset('adminlte') }}/plugins/summernote/summernotebs4.min.js"></script>
+    <script src="{{ asset('adminlte') }}/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="{{ asset('adminlte') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="{{ asset('adminlte') }}/plugins/fastclick/fastclick.js"></script>
+    
+    
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('adminlte') }}/dist/js/demo.js"></script>
+    <!-- <script src="{{ asset('adminlte') }}/dist/js/demo.js"></script> -->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    
     <script src="{{ asset('adminlte') }}/dist/js/pages/dashboard.js"></script>
+    
 @endsection
