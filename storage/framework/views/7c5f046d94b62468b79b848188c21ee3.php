@@ -1,9 +1,14 @@
 <!-- Main Sidebar Container -->
 <!-- <a class="nav-link" data-widget="control-sidebar" href="#">Toggle Control Sidebar</a> -->
-<button class="btn btn-primary" data-widget="pushmenu">Menu</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+<button class="navbar-light bg-light navbar-toggler" type="button" data-bs-toggle="collapse" data-widget="pushmenu">
+<span class="navbar-toggler-icon"></span>
+</button>
 <!-- <button class="btn btn-primary" data-widget="pushmenu" data-auto-collapse-size="768">Toggle Sidebar</button> -->
 <aside class="main-sidebar control-sidebar-dark elevation-4">
-    <!-- Brand Logo -->
+
+<!-- Brand Logo -->
     <!-- <a href="/" class="brand-link">
 <img src="<?php echo e(asset('adminlte')); ?>/dist/img/AdminLTELogo.png"
 alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
@@ -98,6 +103,8 @@ with font-awesome or any other icon font library -->
     </div>
     <!-- /.sidebar -->
 </aside>
+</div>
+</nav>
 
 <!-- <div class="" >
     <a class="" href="<?php echo e(route('logout')); ?>"

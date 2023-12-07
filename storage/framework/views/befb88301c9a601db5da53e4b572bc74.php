@@ -22,11 +22,11 @@
                                         <!-- <td class="text-center"><img width="50" height="50" src="<?php echo e(asset($item->image_path)); ?>" class="img-responsive"></td> -->
                                         <td>
                                             <a href="/dataCustomer/editCust/<?php echo e($item->id); ?>"
-                                            class="btn btn-sm btn-secondary"><i class="fa fa-wrench"></i>  Edit</a>
+                                            class="btn btn-sm btn-secondary "><i class="fa fa-wrench"></i>  Edit</a>
                                             <a href="/dataCustomer/destroyCust/<?php echo e($item->id); ?>"
-                                            class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>   Hapus</a>
+                                            class="btn btn-sm btn-danger delete-link" ><i class="fa fa-trash" "></i>   Hapus</a>
                                             <a href="/dataCustomer/resetPassword/<?php echo e($item->id); ?>"
-                                            class="btn btn-sm btn-warning"><i class="fa fa-recycle"></i>   Reset Password</a>
+                                            class="btn btn-sm btn-warning resetpw-link"><i class="fa fa-recycle"></i>   Reset Password</a>
                                         </td>
 </tr>
 <?php $no++;?>
@@ -43,7 +43,7 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="/dataCustomer/storeCust" enctype="multipart/form-data">
+                <form method="post" action="/dataCustomer/storeCust" enctype="multipart/form-data" id="buttonsuccess">
                     <?php echo e(csrf_field()); ?>
 
                     <div class="mb-3">
@@ -65,5 +65,29 @@
         </div>
     </div>
 </div>
+<?php if(session('success')): ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '<?php echo e(session("success")); ?>',
+                showClass: {
+                    popup: 'animated bounceIn'
+                },
+                hideClass: {
+                    popup: 'animated bounceOut'
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
+<script
+src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+  <script src="<?php echo e(asset('js/sweetalertcustomer.js')); ?>"></script>
+  
+
 
 <?php echo $__env->make('layoutkaryawan.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\wiran\Documents\SEMESTER3\proyek\proyek12\resources\views/karyawan/customer.blade.php ENDPATH**/ ?>

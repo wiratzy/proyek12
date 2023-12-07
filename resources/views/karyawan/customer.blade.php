@@ -23,11 +23,11 @@
                                         <!-- <td class="text-center"><img width="50" height="50" src="{{ asset($item->image_path) }}" class="img-responsive"></td> -->
                                         <td>
                                             <a href="/dataCustomer/editCust/{{ $item->id }}"
-                                            class="btn btn-sm btn-secondary"><i class="fa fa-wrench"></i>  Edit</a>
+                                            class="btn btn-sm btn-secondary "><i class="fa fa-wrench"></i>  Edit</a>
                                             <a href="/dataCustomer/destroyCust/{{ $item->id }}"
                                             class="btn btn-sm btn-danger delete-link" ><i class="fa fa-trash" "></i>   Hapus</a>
                                             <a href="/dataCustomer/resetPassword/{{ $item->id }}"
-                                            class="btn btn-sm btn-warning"><i class="fa fa-recycle"></i>   Reset Password</a>
+                                            class="btn btn-sm btn-warning resetpw-link"><i class="fa fa-recycle"></i>   Reset Password</a>
                                         </td>
 </tr>
 <?php $no++;?>
@@ -65,73 +65,27 @@
         </div>
     </div>
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-<script>
-    $( function() {
-    $('a.delete-link').on('click', function(e) {
-      e.preventDefault();
-      var deleteUrl = $(this).attr('href');
-
-      // Tampilkan SweetAlert konfirmasi penghapusan
-      Swal.fire({
-        title: 'Apakah Anda yakin?',
-        text: 'Data akan dihapus!',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, hapus!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Send the delete request to the server (using AJAX if needed)
-          $.ajax({
-            url: deleteUrl,
-            method: 'GET',
-            success: function() {
-              // On success, show SweetAlert success message
-              Swal.fire(
-                'Berhasil!',
-                'Data telah dihapus.',
-                'success'
-              ).then(() => {
-                // Reload the page after a short delay
-                setTimeout(function() {
-                  location.reload();
-                }, 100); // 500 milliseconds delay, adjust as needed
-              });
-            },
-            error: function() {
-              // On error, show SweetAlert error message
-              Swal.fire(
-                'Gagal!',
-                'Terjadi kesalahan saat menghapus data.',
-                'error'
-              );
-            }
-          });
-        }
-      });
-    });
-  });
-  document.getElementById('buttonsuccess').addEventListener('submit', function (e) {
-            e.preventDefault(); 
+@if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
-                icon: "success",
-                text: "data Berhasil Ditambahkan",
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session("success") }}',
                 showClass: {
-            popup: 'animated bounceIn' // Animasi masuk (gunakan animasi dari library animasi, seperti animate.css)
-         },
-         hideClass: {
-            popup: 'animated bounceOut' // Animasi keluar
-         }
-}).then((result) => {
-         // Jika pengguna mengonfirmasi, kirim formulir
-         if (result.isConfirmed) {
-            document.getElementById('buttonsuccess').submit();
-         }
-      });
-   });
+                    popup: 'animated bounceIn'
+                },
+                hideClass: {
+                    popup: 'animated bounceOut'
+                }
+            });
+        });
     </script>
+@endif
+<script
+src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+  <script src="{{ asset('js/sweetalertcustomer.js') }}"></script>
+  
+

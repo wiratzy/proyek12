@@ -57,7 +57,7 @@ class KaryawanController extends Controller
         return view('karyawan.createcust', compact('title', 'slug', 'dataCust'));
     }
 
-    public function storeCust(Request $request)
+    public function storeCust(Request $request,$id)
     {
         $result = User::insert([
             'role' => 'customer',
@@ -68,7 +68,7 @@ class KaryawanController extends Controller
             'updated_at' => now()
         ]);
         if ($result) {
-            return redirect('/dataCustomer');
+            return redirect()->route('/dataCustomer');
         } else {
             return $this->create();
         }
