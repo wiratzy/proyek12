@@ -1,4 +1,4 @@
-
+//MENAMPILKAN SWEETALERT KETIKA MENGHAPUS DATA CUSTOMER
 $( function() {
     $('a.delete-link').on('click', function(e) {
       e.preventDefault();
@@ -45,6 +45,9 @@ $( function() {
       });
     });
   });
+
+
+  //MENAMPILKAN SWEETALERT KETIKA MERESET PASSWORD COSTUMER
 $( function() {
     $('a.resetpw-link').on('click', function(e) {
       e.preventDefault();
@@ -93,7 +96,7 @@ $( function() {
   });
 
 
-  
+  //BUTTON SUKSES MENAMBAHKAN CUSTOMER
   document.getElementById('buttonsuccess').addEventListener('submit', function (e) {
             e.preventDefault(); 
             Swal.fire({
@@ -113,28 +116,36 @@ $( function() {
       });
    });
  
-   var editForm = document.getElementById('buttonsuccessedit');
-   if (editForm) {
-       // Your event listener code here
-       document.addEventListener('DOMContentLoaded', function(e) {
-        e.preventDefault(); 
-        // Your JavaScript code here
-        Swal.fire({
-          icon: "success",
-          text: "data Berhasil Ditambahkan",
-          showClass: {
-      popup: 'animated bounceIn' // Animasi masuk (gunakan animasi dari library animasi, seperti animate.css)
-   },
-   hideClass: {
-      popup: 'animated bounceOut' // Animasi keluar
-   }
+
+
+//BUTTON SUCCESS UPDATE DATA CUSTOMER   
+        document.getElementById('buttonsuccessedit').addEventListener('submit', function (e) {
+            e.preventDefault(); 
+            Swal.fire({
+                icon: "question",
+                text: "Simpan Perubahan?",
+                showCancelButton: true,
+         confirmButtonText: 'Ya, Kirim!',
+         cancelButtonText: 'Batal'
 }).then((result) => {
-   // Jika pengguna mengonfirmasi, kirim formulir
-   if (result.isConfirmed) {
-      document.getElementById('buttonsuccess').submit();
-   }
-});
-});
-    };
+         // Jika pengguna mengonfirmasi, kirim formulir
+         if (result.isConfirmed) {
+            
+            Swal.fire({
+                icon: "success",
+                text: "data Berhasil Ditambahkan",
+                
+        });
+        setTimeout(() => {
+            document.getElementById('buttonsuccessedit').submit();
+        }, 1000);
+        
+        };
+    }
+         );
+    });
+    
+
+
    
 

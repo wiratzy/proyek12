@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $table = "products";
-    protected $primaryKey = "ProductID";
+    protected $primaryKey = "id";
     protected $fillable = ['Name', 'ProductCode', 'Description', 'Price', 'Stock', 'ImageURL'];
     public $incrementing = false;
 
@@ -35,5 +35,20 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'CategoryID');
     }
 
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class, 'product_id');
+    }
+
+    public function isInWishlist()
+    {
+        // Check if the product is in the current user's wishlist
+        if (auth()->check()) {
+            return auth()->user()->wishlist->contains('product_id', $this->id);
+        }
+
+        return false;
+    }
 
 }

@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->filter(request([('search')]))->paginate(2)->withQueryString();
+        $products = Product::latest()->filter(request([('search')]))->paginate(10)->withQueryString();
         return view('home', compact('products'));
     }
 }

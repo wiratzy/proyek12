@@ -57,7 +57,7 @@ class KaryawanController extends Controller
         return view('karyawan.createcust', compact('title', 'slug', 'dataCust'));
     }
 
-    public function storeCust(Request $request,$id)
+    public function storeCust(Request $request)
     {
         $result = User::insert([
             'role' => 'customer',
@@ -67,8 +67,10 @@ class KaryawanController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
+            
         if ($result) {
-            return redirect()->route('/dataCustomer');
+            
+            return redirect()->back();
         } else {
             return $this->create();
         }
@@ -180,7 +182,7 @@ class KaryawanController extends Controller
         $title = 'Perbarui Data Produk';
         $slug = 'produk';
         $dataProduk = Product::
-            where('ProductID', '=', $id)
+            where('id', '=', $id)
             ->first();
 
         return view('karyawan.updateproduk', compact('title', 'slug', 'dataProduk'));
@@ -189,7 +191,7 @@ class KaryawanController extends Controller
     public function updateProduk(Request $request, $id)
     {
         $id = $request->id;
-        Product::where('ProductID', '=', $id)
+        Product::where('id', '=', $id)
             ->update([
                 'Name' => $request->Name,
                 'Description' => $request->Description,
@@ -204,7 +206,7 @@ class KaryawanController extends Controller
 
     public function destroyProduk($id)
     {
-        Product::where('ProductID', $id)
+        Product::where('id', $id)
             ->delete();
 
         return redirect('/dataProduk');

@@ -40,6 +40,8 @@ href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
 
+
+
         </head>
         <body class="hold-transition sidebar-mini layout-fixed">
             <?php /**PATH C:\Users\Riski Firmansah\Documents\Skool\SEM 3\proyek12\resources\views/layoutkaryawan/header.blade.php ENDPATH**/ ?>

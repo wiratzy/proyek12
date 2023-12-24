@@ -69,8 +69,16 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="ProductCode" class="form-label">Produk kode:</label>
-                        <input type="text" name="ProductCode" class="form-control" required>
+                    <label for="ProductCode" class="form-label">Kategori Produk:</label>
+                    <select class="form-select" name="ProductCode" aria-label="Default select example" required>
+                        <option selected>pilih:</option>
+                        <option value="haircare">haircare</option>
+                        <option value="skincare">skincare</option>
+                        <option value="bodycare">bodycare</option>
+                        <option value="makeup">makeup</option>
+                        <option value="aksesoris">aksesoris</option>
+                        <option value="parfum">parfum</option>
+                    </select>
                     </div>
 
                     <div class="mb-3">

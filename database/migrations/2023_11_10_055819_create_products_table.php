@@ -10,7 +10,7 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id('ProductID');
+            $table->id();
             $table->foreignId('CategoryID')->nullable();
             $table->foreignId('BrandID')->nullable();
             $table->string('Name');

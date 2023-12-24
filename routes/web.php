@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\ProfileControllerController;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->middleware('guest');
+Route::get('/', [ProductController::class, 'showpaginate'])->middleware('guest');
 
 
 Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -43,6 +45,20 @@ Route::post('logout', function () {
     auth()->logout();
     return redirect('login');
 })->name('logout');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+    Route::delete('/wishlist/remove/{product}', [WishlistController::class, 'removeFromWishlist'])->name('wishlist.remove');
+    Route::get('/products/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    Route::get('/products/haircare', [CategoryController::class, 'haircare']);
+    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    // Tambahkan rute lainnya sesuai kebutuhan
+});
 
 // Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('RedirectIfNotKaryawan');
 // Route::get('login', [LoginController::class, 'index']);

@@ -65,23 +65,6 @@
         </div>
     </div>
 </div>
-@if(session('success'))
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session("success") }}',
-                showClass: {
-                    popup: 'animated bounceIn'
-                },
-                hideClass: {
-                    popup: 'animated bounceOut'
-                }
-            });
-        });
-    </script>
-@endif
 <script
 src="https://code.jquery.com/jquery-3.7.1.min.js"
 integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="

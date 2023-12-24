@@ -1,48 +1,4 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-                <div class="card-body">
-                <form action="{{ route('storeCustomer') }}" method="POST">
-                    @csrf
-                    <div class="row mb-3">
-                    <label for="name" class="col-md-4 col-form-label text-md-end">Nama :</label>
-                    <div class="col-md-6">
-                    <input type="text" name="name" id="name">
-                    </div>
-                    <br>
-                    <div class="row mb-3">
-                    <label for="email" class="col-md-4 col-form-label text-md-end">Email :</label>
-                    <div class="col-md-6">
-                    <input type="text" name="email" id="email">
-                    </div>
-                    <br>
-                    <div class="row mb-3">
-                    <label for="password" class="col-md-4 col-form-label text-md-end">Password :</label>
-                    <div class="col-md-6">
-                    <input type="password" name="password" id="password">
-                    </div>
-                    <br>
-                    <div class="row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                        </div>
-                    </div>
-                    <h4>Sudah punya akun ?<a href="/">Login</a></h4>
-                </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-         --}}
-
-         @extends('layouts.app')
+@extends('layouts.applogin')
 
 @section('content')
 <div class="container">
