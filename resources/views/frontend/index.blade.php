@@ -35,7 +35,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi {{ Auth::user()->name }}! <span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
+              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi<span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
               <p class="wow fadeInUp" data-wow-delay=".4s">
               Temukan Ragam Kosmetik Berkualitas Tinggi
             </p>
@@ -50,11 +50,11 @@
             </form>
             </div>
 					</div>
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<div class="hero-img wow fadeInUp" data-wow-delay=".5s">
 							<img src="assets/img/hero/hero-img.jpg" alt="">
 						</div>
-					</div>
+					</div> -->
         </div>
       </div>
     </section>
@@ -319,7 +319,7 @@
                         <div class="card shadow-sm" style="border-color: #fff">
                             <div class="card-body">
                                 <p class="productName">{{ $product->Name }}</p>
-                                <!-- <p>{{ $product->Description }}</p> -->
+                                
                                 <h3>{{ $product->Price }}</h3>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-body-secondary">Stock: {{ $product->Stock }} </small>
@@ -352,24 +352,7 @@
         </div>
     </div>
 </div>
-    <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body flex-nowrap" style="overflow-x: auto; white-space: nowrap;">
-      {{ $product->Description }}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
+    
 </section>
 
     <div class="d-flex justify-content-end">
