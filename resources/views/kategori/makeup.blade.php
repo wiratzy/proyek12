@@ -5,7 +5,7 @@
 <body class="antialiased">
     <html>
     <div class="bg">
-    <h1>SEMUA PRODUK</h1>
+    <h1>MAKE UP</h1>
   </div>
 
   <div id="wrapper">
@@ -23,10 +23,10 @@
 				<span class="hamb-bottom"></span>
             </button>
             <!-- Card -->
-    <div class="row justify-content-center mb-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 flex-nowrap g-3  ms-1" >
+    <div class="row justify-content-center mb-1">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" >
             @foreach ($products as $item)
-            <div class="col">
+            <div class="col p-3">
                                     <div class="nft">
                                         <div class='main'>
                                         <img class='tokenImage' src="{{ asset('storage/'. $item->ImageURL) }}" alt="NFT" />

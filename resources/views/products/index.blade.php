@@ -35,7 +35,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi {{ Auth::user()->name }}! <span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
+              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi<span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
               <p class="wow fadeInUp" data-wow-delay=".4s">
               Temukan Ragam Kosmetik Berkualitas Tinggi
             </p>
@@ -50,11 +50,11 @@
             </form>
             </div>
 					</div>
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<div class="hero-img wow fadeInUp" data-wow-delay=".5s">
-							<!-- <img src="assets/img/hero/hero-img.jpg" alt=""> -->
+							<img src="assets/img/hero/hero-img.jpg" alt="">
 						</div>
-					</div>
+					</div> -->
         </div>
       </div>
     </section>
@@ -73,7 +73,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/makeup" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".2s">
 							<div class="icon">
 								<img src="{{ asset('adminlte') }}/dist/img/makeup-pouch.png"  alt="">
@@ -86,7 +86,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/skincare" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".4s">
 							<div class="icon">
 								<img src="{{ asset('adminlte') }}/dist/img/skincare.png" alt="">
@@ -99,7 +99,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/haircare" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".6s">
 							<div class="icon">
 								<img src="{{ asset('adminlte') }}/dist/img/beauty.png" alt="">
@@ -112,7 +112,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/bodycare" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".2s">
 							<div class="icon">
 								<img src="{{ asset('adminlte') }}/dist/img/clean.png" alt="">
@@ -125,7 +125,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/aksesoris" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".4s">
 							<div class="icon">
 								<img src="{{ asset('adminlte') }}/dist/img/brushes.png" alt="">
@@ -138,7 +138,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/parfum" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".6s">
 							<div class="icon">
 								<img src="{{ asset('adminlte') }}/dist/img/parfum.png" alt="">
@@ -319,20 +319,20 @@
                         <div class="card shadow-sm" style="border-color: #fff">
                             <div class="card-body">
                                 <p class="productName">{{ $product->Name }}</p>
-                                <!-- <p>{{ $product->Description }}</p> -->
+                                
                                 <h3>{{ $product->Price }}</h3>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-body-secondary">Stock: {{ $product->Stock }} </small>
                                     <!-- Tombol Add to Wishlist -->
-<form id="formAdd" action="{{ route('wishlist.add', $product) }}" method="post" >
-    @csrf
-    @method('post')
-    <button  type="submit" class="btn">
-        <i class="{{ $product->isInWishlist() ? 'fas' : 'far' }} fa-heart"></i>
-        {{ $product->isInWishlist() ? '' : '' }}
-    </button>
-</form>
-
+                                    <form id="formAdd" action="{{ route('wishlist.add', $product) }}" method="post" >
+                                      @csrf
+                                      @method('post')
+                                      <button  type="submit" class="btn">
+                                          <i class="{{ $product->isInWishlist() ? 'fas' : 'far' }} fa-heart"></i>
+                                          {{ $product->isInWishlist() ? '' : '' }}
+                                      </button>
+                                  </form>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -360,7 +360,7 @@
         </div>
     </div>
 </div>
-   
+    
 </section>
 
     <div class="d-flex justify-content-end">

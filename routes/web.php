@@ -52,11 +52,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/products/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::get('/products/showAll', [CategoryController::class, 'showAll']);
     Route::get('/products/haircare', [CategoryController::class, 'haircare']);
-    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
-    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
-    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
-    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
-    Route::get('/products/showAll', [CategoryController::class, 'showAll']);
+    Route::get('/products/makeup', [CategoryController::class, 'makeup']);
+    Route::get('/products/bodycare', [CategoryController::class, 'bodycare']);
+    Route::get('/products/aksesoris', [CategoryController::class, 'aksesoris']);
+    Route::get('/products/skincare', [CategoryController::class, 'skincare']);
+    Route::get('/products/parfum', [CategoryController::class, 'parfum']);
     // Tambahkan rute lainnya sesuai kebutuhan
 });
 
