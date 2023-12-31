@@ -50,5 +50,19 @@ class Product extends Model
 
         return false;
     }
+    public function cart()
+    {
+        return $this->hasMany(Cart::class, 'product_id');
+    }
+
+    public function isInCart()
+    {
+        // Check if the product is in the current user's wishlist
+        if (auth()->check()) {
+            return auth()->user()->cart->contains('product_id', $this->id);
+        }
+
+        return false;
+    }
 
 }

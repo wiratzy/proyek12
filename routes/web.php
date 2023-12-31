@@ -8,6 +8,7 @@ use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
@@ -60,6 +61,11 @@ Route::group(['middleware' => 'auth'], function () {
     // Tambahkan rute lainnya sesuai kebutuhan
 });
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/cart/remove/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get('/products/cart', [CartController::class, 'index'])->name('cart.index');
+});
 // Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('RedirectIfNotKaryawan');
 // Route::get('login', [LoginController::class, 'index']);
 // Route::post('dashboard/dashboardKaryawan', [LoginController::class, 'store']);

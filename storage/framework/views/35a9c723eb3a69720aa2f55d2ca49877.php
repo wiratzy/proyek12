@@ -16,7 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-        <!-- Ionicons -->
+    <!-- Ionicons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- css -->
     <link rel="stylesheet" href="<?php echo e(asset('css')); ?>/bootstrap-5.0.0-alpha-2.min.css" />
@@ -54,7 +54,7 @@
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand " href="/products">
-                  <img src="<?php echo e(asset('adminlte')); ?>/dist/img/tokoririn.png" alt="Logo" class="siz" />
+                  <img src="<?php echo e(asset('adminlte')); ?>/dist/img/logork.png" alt="Logo" class="siz" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="toggler-icon"></span>
@@ -97,6 +97,9 @@
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
+                                </li>
                             </ul>
                         </div>
                                 <li class="nav-item">
@@ -131,6 +134,9 @@
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
+                                </li>
                             </ul>
                         </div>
                                 <li class="nav-item">
@@ -151,6 +157,9 @@
                             <?php elseif(Auth::user()->role == "admin") : ?>
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
                                 </li>
                             </ul>
                         </div>

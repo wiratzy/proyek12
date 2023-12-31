@@ -475,7 +475,7 @@ input[value="4"]:checked ~ * .-prev .nav-toggle:not([for="scene-3"]) {
         }
 
         .image-container:hover .button-overlay {
-            bottom: 30px;
+            bottom: 70px;
             opacity: 1; /* Show the button on hover */
         }
 

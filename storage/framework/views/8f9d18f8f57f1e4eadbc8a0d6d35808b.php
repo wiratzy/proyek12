@@ -3,6 +3,13 @@
   a{
     text-decoration: none;
   }
+  .cart-btn {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart-btn:hover {
+    transform: scale(1.5);
+}
 </style>
 <body class="antialiased">
     <!-- ========================= preloader start ========================= -->
@@ -34,7 +41,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi <?php echo e(Auth::user()->name); ?>! <span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
+              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi<span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
               <p class="wow fadeInUp" data-wow-delay=".4s">
               Temukan Ragam Kosmetik Berkualitas Tinggi
             </p>
@@ -49,11 +56,11 @@
             </form>
             </div>
 					</div>
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<div class="hero-img wow fadeInUp" data-wow-delay=".5s">
 							<img src="assets/img/hero/hero-img.jpg" alt="">
 						</div>
-					</div>
+					</div> -->
         </div>
       </div>
     </section>
@@ -72,7 +79,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/makeup" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".2s">
 							<div class="icon">
 								<img src="<?php echo e(asset('adminlte')); ?>/dist/img/makeup-pouch.png"  alt="">
@@ -85,7 +92,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/skincare" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".4s">
 							<div class="icon">
 								<img src="<?php echo e(asset('adminlte')); ?>/dist/img/skincare.png" alt="">
@@ -98,7 +105,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/haircare" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".6s">
 							<div class="icon">
 								<img src="<?php echo e(asset('adminlte')); ?>/dist/img/beauty.png" alt="">
@@ -111,7 +118,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/bodycare" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".2s">
 							<div class="icon">
 								<img src="<?php echo e(asset('adminlte')); ?>/dist/img/clean.png" alt="">
@@ -124,7 +131,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/aksesoris" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".4s">
 							<div class="icon">
 								<img src="<?php echo e(asset('adminlte')); ?>/dist/img/brushes.png" alt="">
@@ -137,7 +144,7 @@
                         </a>
 					</div>
 					<div class="col-lg-4 col-md-6">
-                        <a href="#" class="text-dark">
+                        <a href="products/parfum" class="text-dark">
 						<div class="single-service wow fadeInUp" data-wow-delay=".6s">
 							<div class="icon">
 								<img src="<?php echo e(asset('adminlte')); ?>/dist/img/parfum.png" alt="">
@@ -318,21 +325,31 @@
                         <div class="card shadow-sm" style="border-color: #fff">
                             <div class="card-body">
                                 <p class="productName"><?php echo e($product->Name); ?></p>
-                                <!-- <p><?php echo e($product->Description); ?></p> -->
+                                
                                 <h3><?php echo e($product->Price); ?></h3>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-body-secondary">Stock: <?php echo e($product->Stock); ?> </small>
                                     <!-- Tombol Add to Wishlist -->
-<form id="formAdd" action="<?php echo e(route('wishlist.add', $product)); ?>" method="post" >
-    <?php echo csrf_field(); ?>
-    <?php echo method_field('post'); ?>
-    <button  type="submit" class="btn">
-        <i class="<?php echo e($product->isInWishlist() ? 'fas' : 'far'); ?> fa-heart"></i>
-        <?php echo e($product->isInWishlist() ? '' : ''); ?>
+                                    <form id="formAdd" action="<?php echo e(route('wishlist.add', $product)); ?>" method="post" >
+                                      <?php echo csrf_field(); ?>
+                                      <?php echo method_field('post'); ?>
+                                      <button  type="submit" class="btn cart-btn">
+                                          <i class="<?php echo e($product->isInWishlist() ? 'fas' : 'far'); ?> fa-heart"></i>
+                                          <?php echo e($product->isInWishlist() ? '' : ''); ?>
 
-    </button>
-</form>
+                                      </button>
+                                  </form>
+                                  
+                                    <form id="formAdd" action="<?php echo e(route('cart.add', $product)); ?>" method="post" >
+                                      <?php echo csrf_field(); ?>
+                                      <?php echo method_field('post'); ?>
+                                      <button  type="submit" class="btn cart-btn">
+                                          <i class="<?php echo e($product->isInCart() ? 'fas fa-shopping-cart' : 'fa fa-cart-plus'); ?>"></i>
+                                          <?php echo e($product->isInCart() ? '' : ''); ?>
 
+                                      </button>
+                                  </form>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -361,25 +378,7 @@
         </div>
     </div>
 </div>
-    <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body flex-nowrap" style="overflow-x: auto; white-space: nowrap;">
-      <?php echo e($product->Description); ?>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
+    
 </section>
 
     <div class="d-flex justify-content-end">

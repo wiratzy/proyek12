@@ -4,6 +4,13 @@
   a{
     text-decoration: none;
   }
+  .cart-btn {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart-btn:hover {
+    transform: scale(1.5);
+}
 </style>
 <body class="antialiased">
     <!-- ========================= preloader start ========================= -->
@@ -327,9 +334,18 @@
                                     <form id="formAdd" action="{{ route('wishlist.add', $product) }}" method="post" >
                                       @csrf
                                       @method('post')
-                                      <button  type="submit" class="btn">
+                                      <button  type="submit" class="btn cart-btn">
                                           <i class="{{ $product->isInWishlist() ? 'fas' : 'far' }} fa-heart"></i>
                                           {{ $product->isInWishlist() ? '' : '' }}
+                                      </button>
+                                  </form>
+                                  
+                                    <form id="formAdd" action="{{ route('cart.add', $product) }}" method="post" >
+                                      @csrf
+                                      @method('post')
+                                      <button  type="submit" class="btn cart-btn">
+                                          <i class="{{ $product->isInCart() ? 'fas fa-shopping-cart' : 'fa fa-cart-plus' }}"></i>
+                                          {{ $product->isInCart() ? '' : '' }}
                                       </button>
                                   </form>
                                   

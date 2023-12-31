@@ -16,7 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-        <!-- Ionicons -->
+    <!-- Ionicons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('css') }}/bootstrap-5.0.0-alpha-2.min.css" />
@@ -97,6 +97,9 @@
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
+                                </li>
                             </ul>
                         </div>
                                 <li class="nav-item">
@@ -129,6 +132,9 @@
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
+                                </li>
                             </ul>
                         </div>
                                 <li class="nav-item">
@@ -149,6 +155,9 @@
                             <?php elseif(Auth::user()->role == "admin") : ?>
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
                                 </li>
                             </ul>
                         </div>
