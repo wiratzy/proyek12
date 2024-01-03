@@ -65,6 +65,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::delete('/cart/remove/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::get('/products/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/products/cart/update', [CartController::class, 'updateCart'])->name('tambahCart');
+    Route::post('/products/cart/minus', [CartController::class, 'removeQty'])->name('kurangCart');
 });
 // Route::get('dashboard/dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('RedirectIfNotKaryawan');
 // Route::get('login', [LoginController::class, 'index']);
@@ -114,27 +116,27 @@ Route::get('dataProdukAdm/destroyProduk/{id}', [AdminController::class, 'destroy
 
 
 
-                            // KARYAWAN DATA TABLE CUSTOMER
-                            Route::get('dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('auth')->middleware('RedirectIfNotKaryawan');
-                            Route::get('dashboardKaryawan', [KaryawanController::class, 'show'])->middleware('auth')->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataCustomer', [KaryawanController::class, 'dataCust'])->middleware('RedirectIfNotKaryawan');
-                            Route::post('/dataCustomer/storeCust', [KaryawanController::class, 'storeCust'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataCustomer/createCust', [KaryawanController::class, 'createCust'])->middleware('RedirectIfNotKaryawan');
-                            Route::post('/dataCustomer/updateCust/{id}', [KaryawanController::class, 'updateCust'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataCustomer/editCust/{id}', [KaryawanController::class, 'editCust'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataCustomer/destroyCust/{id}', [KaryawanController::class, 'destroyCust'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataCustomer/resetPassword/{id}', [KaryawanController::class, 'resetPassword'])->middleware('RedirectIfNotKaryawan');
-                            
-                            // KARYAWAN DATA TABLE PRODUK
-                            Route::get('dataProduk', [KaryawanController::class, 'dataProduk'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataProduk/createProduk', [KaryawanController::class, 'createProduk'])->middleware('RedirectIfNotKaryawan');
-                            Route::post('/dataProduk/storeProduk', [KaryawanController::class, 'storeProduk'])->name('products.store')->middleware('RedirectIfNotKaryawan');
-                            Route::post('/dataProduk/updateProduk/{id}', [KaryawanController::class, 'updateProduk'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataProduk/editProduk/{id}', [KaryawanController::class, 'editProduk'])->middleware('RedirectIfNotKaryawan');
-                            Route::get('/dataProduk/destroyProduk/{id}', [KaryawanController::class, 'destroyProduk'])->middleware('RedirectIfNotKaryawan');
+// KARYAWAN DATA TABLE CUSTOMER
+Route::get('dashboardKaryawan', [KaryawanController::class, 'index'])->middleware('auth')->middleware('RedirectIfNotKaryawan');
+Route::get('dashboardKaryawan', [KaryawanController::class, 'show'])->middleware('auth')->middleware('RedirectIfNotKaryawan');
+Route::get('/dataCustomer', [KaryawanController::class, 'dataCust'])->middleware('RedirectIfNotKaryawan');
+Route::post('/dataCustomer/storeCust', [KaryawanController::class, 'storeCust'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataCustomer/createCust', [KaryawanController::class, 'createCust'])->middleware('RedirectIfNotKaryawan');
+Route::post('/dataCustomer/updateCust/{id}', [KaryawanController::class, 'updateCust'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataCustomer/editCust/{id}', [KaryawanController::class, 'editCust'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataCustomer/destroyCust/{id}', [KaryawanController::class, 'destroyCust'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataCustomer/resetPassword/{id}', [KaryawanController::class, 'resetPassword'])->middleware('RedirectIfNotKaryawan');
 
-                            // KARYAWAN DATA TABLE PROFIL
-                            Route::get('profil', [KaryawanController::class, 'profil'])->middleware('RedirectIfNotKaryawan');
-                            //Route::post('/dataKaryawan/storeProfil', [KaryawanController::class, 'storeProfil'])->middleware('RedirectIfNotKaryawan');
-                            Route::post('/dataKaryawan/updateProfil/{id}', [KaryawanController::class, 'updateProfil'])->middleware('RedirectIfNotKaryawan')->name('update.profile');
-                            Route::get('/dataKaryawan/editProfil/{id}', [KaryawanController::class, 'editProfil'])->middleware('RedirectIfNotKaryawan');
+// KARYAWAN DATA TABLE PRODUK
+Route::get('dataProduk', [KaryawanController::class, 'dataProduk'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataProduk/createProduk', [KaryawanController::class, 'createProduk'])->middleware('RedirectIfNotKaryawan');
+Route::post('/dataProduk/storeProduk', [KaryawanController::class, 'storeProduk'])->name('products.store')->middleware('RedirectIfNotKaryawan');
+Route::post('/dataProduk/updateProduk/{id}', [KaryawanController::class, 'updateProduk'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataProduk/editProduk/{id}', [KaryawanController::class, 'editProduk'])->middleware('RedirectIfNotKaryawan');
+Route::get('/dataProduk/destroyProduk/{id}', [KaryawanController::class, 'destroyProduk'])->middleware('RedirectIfNotKaryawan');
+
+// KARYAWAN DATA TABLE PROFIL
+Route::get('profil', [KaryawanController::class, 'profil'])->middleware('RedirectIfNotKaryawan');
+//Route::post('/dataKaryawan/storeProfil', [KaryawanController::class, 'storeProfil'])->middleware('RedirectIfNotKaryawan');
+Route::post('/dataKaryawan/updateProfil/{id}', [KaryawanController::class, 'updateProfil'])->middleware('RedirectIfNotKaryawan')->name('update.profile');
+Route::get('/dataKaryawan/editProfil/{id}', [KaryawanController::class, 'editProfil'])->middleware('RedirectIfNotKaryawan');

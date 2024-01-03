@@ -3,8 +3,15 @@
   a{
     text-decoration: none;
   }
+  .cart-btn {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart-btn:hover {
+    transform: scale(1.5);
+}
 </style>
-<body class="antialiased">
+<body class="antialiased showCart">
     <!-- ========================= preloader start ========================= -->
     <div class="preloader">
       <div class="loader">
@@ -34,7 +41,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi<span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
+              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi <?php echo e(auth()->user()->name); ?>! <span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
               <p class="wow fadeInUp" data-wow-delay=".4s">
               Temukan Ragam Kosmetik Berkualitas Tinggi
             </p>
@@ -57,7 +64,12 @@
         </div>
       </div>
     </section>
+
+     
+    
 		<!-- ========================= search-section end ========================= -->
+
+    
 
 		<!-- ========================= service-section start ========================= -->
 		<section id="kategori" class="service-section pt-150">
@@ -326,9 +338,19 @@
                                     <form id="formAdd" action="<?php echo e(route('wishlist.add', $product)); ?>" method="post" >
                                       <?php echo csrf_field(); ?>
                                       <?php echo method_field('post'); ?>
-                                      <button  type="submit" class="btn">
+                                      <button  type="submit" class="btn cart-btn">
                                           <i class="<?php echo e($product->isInWishlist() ? 'fas' : 'far'); ?> fa-heart"></i>
                                           <?php echo e($product->isInWishlist() ? '' : ''); ?>
+
+                                      </button>
+                                  </form>
+                                  
+                                    <form id="formAdd" action="<?php echo e(route('cart.add', $product)); ?>" method="post" >
+                                      <?php echo csrf_field(); ?>
+                                      <?php echo method_field('post'); ?>
+                                      <button  type="submit" class="btn cart-btn">
+                                          <i class="<?php echo e($product->isInCart() ? 'fas fa-shopping-cart' : 'fa fa-cart-plus'); ?>"></i>
+                                          <?php echo e($product->isInCart() ? '' : ''); ?>
 
                                       </button>
                                   </form>

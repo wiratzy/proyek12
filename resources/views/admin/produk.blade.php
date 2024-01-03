@@ -31,11 +31,11 @@
                             class="img-responsive"></td>
                     <td>
                          <a {{--onclick="edit('{{ $item->ProductID }}', '{{ $item->Name }}', '{{ $item->ProductCode }}', '{{ $item->Description }}', '{{ $item->Price }}', '{{ $item->Stock }}' )"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1"--}} href="/dataProdukAdm/editProduk/{{ $item->ProductID }}" class="btn btn-sm btn-secondary"> 
+                            data-bs-toggle="modal" data-bs-target="#exampleModal1"--}} href="/dataProdukAdm/editProduk/{{ $item->id }}" class="btn btn-sm btn-secondary"> 
                             <i class="fa fa-wrench"></i>
                             Edit
                         </a>
-                        <a href="/dataProdukAdm/destroyProduk/{{ $item->ProductID }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
+                        <a href="/dataProdukAdm/destroyProduk/{{ $item->id }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
                             Hapus</a>
                     </td>
                 </tr>

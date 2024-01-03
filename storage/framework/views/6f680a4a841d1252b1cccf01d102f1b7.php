@@ -16,7 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-        <!-- Ionicons -->
+    <!-- Ionicons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- css -->
     <link rel="stylesheet" href="<?php echo e(asset('css')); ?>/bootstrap-5.0.0-alpha-2.min.css" />
@@ -97,6 +97,9 @@
                                 <li class="nav-item">
                                     <a  href="/products/wishlist">Wishlist</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a  href="/products/cart">Keranjang</a>
+                                </li>
                             </ul>
                         </div>
                                 <li class="nav-item">
@@ -126,50 +129,6 @@
                                         <?php echo csrf_field(); ?>
                                     </form>
                                 </div>
-                            </li> -->
-                            <?php elseif(Auth::user()->role == "karyawan") : ?>
-                                <li class="nav-item">
-                                    <a  href="/products/wishlist">Wishlist</a>
-                                </li>
-                            </ul>
-                        </div>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('logout')); ?>"onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <?php echo e(__('Logout')); ?></a>
-                                </li>
-                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
-                                        <?php echo csrf_field(); ?>
-                                </form>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/dashboardKaryawan">
-                                        Dashboard
-                                    </a>
-                            </li>
-                                </div>
-                            </li>
-                            <?php elseif(Auth::user()->role == "admin") : ?>
-                                <li class="nav-item">
-                                    <a  href="/products/wishlist">Wishlist</a>
-                                </li>
-                            </ul>
-                        </div>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('logout')); ?>"onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <?php echo e(__('Logout')); ?></a>
-                                </li>
-                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
-                                        <?php echo csrf_field(); ?>
-                                </form>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/dashboardKaryawan">
-                                        Dashboard
-                                    </a>
-                            </li>
-
-                                </div>
-                            </li>
                             <?php endif; ?>
                         <?php endif; ?>
                         </nav>

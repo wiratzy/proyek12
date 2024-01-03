@@ -127,56 +127,6 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li> -->
-                            <?php elseif(Auth::user()->role == "karyawan") : ?>
-                                <li class="nav-item">
-                                    <a  href="/products/wishlist">Wishlist</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a  href="/products/cart">Keranjang</a>
-                                </li>
-                            </ul>
-                        </div>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}</a>
-                                </li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                </form>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/dashboardKaryawan">
-                                        Dashboard
-                                    </a>
-                            </li>
-                                </div>
-                            </li>
-                            <?php elseif(Auth::user()->role == "admin") : ?>
-                                <li class="nav-item">
-                                    <a  href="/products/wishlist">Wishlist</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a  href="/products/cart">Keranjang</a>
-                                </li>
-                            </ul>
-                        </div>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}</a>
-                                </li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                </form>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/dashboardKaryawan">
-                                        Dashboard
-                                    </a>
-                            </li>
-
-                                </div>
-                            </li>
                             <?php endif; ?>
                         @endguest
                         </nav>

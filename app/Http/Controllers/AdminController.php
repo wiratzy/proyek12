@@ -222,7 +222,7 @@ class AdminController extends Controller
         $title = 'Perbarui Data Produk';
         $slug = 'produk';
         $dataProduk = Product::
-            where('ProductID', '=', $id)
+            where('id', '=', $id)
             ->first();
 
         return view('admin.updateProduk', compact('title', 'slug', 'dataProduk', ));
@@ -233,7 +233,7 @@ class AdminController extends Controller
     public function updateProduk(Request $request, $id)
     {
         $id = $request->id;
-        Product::where('ProductID', '=', $id)
+        Product::where('id', '=', $id)
             ->update([
                 'Name' => $request->Name,
                 'Description' => $request->Description,
@@ -247,7 +247,7 @@ class AdminController extends Controller
 
     public function destroyProduk($id)
     {
-        Product::where('ProductID', $id)
+        Product::where('id', $id)
             ->delete();
 
         return redirect('/dataProdukAdm');

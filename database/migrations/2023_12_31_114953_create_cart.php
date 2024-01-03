@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained(); // Make sure it references 'products' table
             $table->foreignId('user_id')->constrained(); // Assuming you have a users table
+            $table->integer('qty');
+            $table->integer('price');
             // Add other columns as needed
             $table->timestamps();
         });

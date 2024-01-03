@@ -1,0 +1,84 @@
+.icon-cart {
+    padding-top: 10px;
+    width: 50;
+    position: relative;
+}
+
+.angka {
+    display: flex;
+    background-color: #d44d4d;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+}
+.icon-favorite {
+    padding-top: 10;
+}
+
+.cartTab {
+    width: 400px;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0 -400px 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: transform 0.5s;
+    z-index: 1;
+}
+
+body .showCart .cartTab {
+    inset: 0 0 0 auto;
+}
+
+body .showCart .container {
+    transform: translateX(-250px);
+}
+
+.cartTab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .listCart .item img {
+    width: 100%;
+}
+
+.cartTab .listCart .item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.listCart .quantity span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+    background-color: transparent;
+    color: #eee;
+}
+
+.listCart {
+    overflow: auto;
+}

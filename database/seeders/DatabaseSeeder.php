@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::create([
-            'ProductID' => '2',
+            'id' => '2',
             'Name' => 'sampo',
             'ProductCode' => '002',
             'Description' => 'sampo Impor Terpercaya',
@@ -62,34 +62,34 @@ class DatabaseSeeder extends Seeder
             'ImageURL' => 'unsplash.com'
 
         ]);
-        Product::create([
-            'ProductID' => '3',
-            'Name' => 'Pastagigi',
-            'ProductCode' => '003',
-            'Description' => 'Pastagigi Impor Terpercaya',
-            'Price' => 1500,
-            'Stock' => 3,
-            'ImageURL' => 'unsplash.com'
+        // Product::create([
+        //     'ProductID' => '3',
+        //     'Name' => 'Pastagigi',
+        //     'ProductCode' => '003',
+        //     'Description' => 'Pastagigi Impor Terpercaya',
+        //     'Price' => 1500,
+        //     'Stock' => 3,
+        //     'ImageURL' => 'unsplash.com'
 
-        ]);
-        Product::create([
-            'ProductID' => '1',
-            'Name' => 'Sabun',
-            'ProductCode' => '001',
-            'Description' => 'Sabun Impor Terpercaya',
-            'Price' => 15000,
-            'Stock' => 2,
-            'ImageURL' => 'unsplash.com'
+        // ]);
+        // Product::create([
+        //     'ProductID' => '1',
+        //     'Name' => 'Sabun',
+        //     'ProductCode' => '001',
+        //     'Description' => 'Sabun Impor Terpercaya',
+        //     'Price' => 15000,
+        //     'Stock' => 2,
+        //     'ImageURL' => 'unsplash.com'
 
-        ]);
+        // ]);
 
-        Customer::create([
-            'CustomerID' => '1',
-            'nama' => 'riyan',
-            'nomor_hp' => '0893531342',
-            'alamat' => 'imkot',
-            'email' => 'rian@gmail.com',
-            'password' => bcrypt('12345')
-        ]);
+        // Customer::create([
+        //     'CustomerID' => '1',
+        //     'nama' => 'riyan',
+        //     'nomor_hp' => '0893531342',
+        //     'alamat' => 'imkot',
+        //     'email' => 'rian@gmail.com',
+        //     'password' => bcrypt('12345')
+        // ]);
         }
 }

@@ -38,15 +38,6 @@ alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity:
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/profil" class="nav-link
-                {{ $slug == 'profil' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Profil
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/dataCustomerAdm" class="nav-link
                     {{ $slug == 'customer' ? 'active' : '' }}">
                         <i class="nav-icon fa fa-users" aria-hidden="true"></i>

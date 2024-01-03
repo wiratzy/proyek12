@@ -21,10 +21,10 @@
 				<span class="hamb-bottom"></span>
             </button>
             <!-- Card -->
-    <div class="row justify-content-center mb-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 flex-nowrap g-3  ms-1" >
+    <div class="row justify-content-center mb-1">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" >
             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="col">
+            <div class="col p-3">
                                     <div class="nft">
                                         <div class='main'>
                                         <img class='tokenImage' src="<?php echo e(asset('storage/'. $item->ImageURL)); ?>" alt="NFT" />

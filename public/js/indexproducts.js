@@ -1,3 +1,15 @@
+let iconCart = document.querySelector('.icon-cart');
+let body = document.querySelector('body');
+
+
+iconCart.addEventListener('click', () => {
+    body.classList.toggle('.showCart')
+})  
+
+
+
+
+
 $(document).ready(function () {
     $('.wishlist-form').submit(function (event) {
         event.preventDefault();
@@ -19,3 +31,5 @@ $(document).ready(function () {
         // Add additional logic here, such as making an AJAX request to update the wishlist
     });
 });
+
+

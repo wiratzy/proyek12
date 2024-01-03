@@ -12,7 +12,7 @@
     transform: scale(1.5);
 }
 </style>
-<body class="antialiased">
+<body class="antialiased showCart">
     <!-- ========================= preloader start ========================= -->
     <div class="preloader">
       <div class="loader">
@@ -42,7 +42,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi<span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
+              <h1 class="wow fadeInUp" data-wow-delay=".2s">Hi {{ auth()->user()->name }}! <span>Kecantikan Sehat Dimulai dari Pilihan Produk yang Tepat! </span> </h1>
               <p class="wow fadeInUp" data-wow-delay=".4s">
               Temukan Ragam Kosmetik Berkualitas Tinggi
             </p>
@@ -65,7 +65,12 @@
         </div>
       </div>
     </section>
+
+     
+    
 		<!-- ========================= search-section end ========================= -->
+
+    
 
 		<!-- ========================= service-section start ========================= -->
 		<section id="kategori" class="service-section pt-150">
